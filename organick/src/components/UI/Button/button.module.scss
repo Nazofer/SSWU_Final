@@ -1,0 +1,6 @@
+@import '../../../Styles/global.scss';
+
+.button {
+  @include button();
+
+}
