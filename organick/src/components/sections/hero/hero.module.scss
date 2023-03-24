@@ -1,7 +1,7 @@
 @import '../../../Styles/global.scss';
 
 .hero {
-  height: 80vh;
+  height: calc(100vh - 208px);
   background-image: url('../../../img/hero-background.png');
   background-size: cover;
   flex: 1;

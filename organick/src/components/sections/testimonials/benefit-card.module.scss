@@ -1,0 +1,21 @@
+@import '../../../Styles/global.scss';
+
+.benefits__card {
+  //padding: 3rem;
+  border-radius: 50%;
+  border: 2px solid $color-primary-green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 19rem;
+  height: 19rem;
+  background: #F1F1F1;
+  &-value {
+    @include heading;
+  }
+  &-paragraph {
+    @include paragraph;
+    font-weight: 600;
+  }
+}

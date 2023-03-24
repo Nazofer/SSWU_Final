@@ -1,7 +1,7 @@
 @import '../../../Styles/global.scss';
 
 .nav-menu {
-  height: 20vh;
+  //height: 20vh;
   padding-top: 7rem;
   padding-bottom: 7rem;
   display: flex;
@@ -10,17 +10,6 @@
   background: rgba(255, 255, 255, 0.9);
   @include container();
   max-width: 170rem;
-  &__logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    &-paragraph {
-      @include heading();
-      font-weight: 700;
-      font-size: 3.8rem;
-      line-height: 4.5rem;
-    }
-  }
   &__links {
     display: flex;
     gap: 4.5rem;

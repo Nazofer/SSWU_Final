@@ -1,0 +1,13 @@
+@import '../../../Styles/global.scss';
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  &-paragraph {
+    @include heading();
+    font-weight: 700;
+    font-size: 3.8rem;
+    line-height: 4.5rem;
+  }
+}

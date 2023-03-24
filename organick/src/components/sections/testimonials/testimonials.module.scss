@@ -1,0 +1,69 @@
+@import '../../../Styles/global.scss';
+
+.testimonials {
+  padding-top: 16.4rem;
+  text-align: center;
+  position: relative;
+  & > img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    max-height: 120rem;
+  }
+  &-bg--left {
+    left: 0;
+  }
+  &-bg--right {
+    right: 0;
+    transform: rotate(180deg);
+  }
+  &-subheading {
+    @include subheading;
+    margin-bottom: 0.8rem;
+  }
+  &-heading {
+    @include heading;
+    margin-bottom: 5.1rem;
+  }
+  .feedback {
+    @include container;
+    @include paragraph;
+    max-width: 80rem;
+    &__person {
+      &-avatar {
+        margin: 0 auto;
+        display: block;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+      &-rate {
+        margin-bottom: 2.5rem;
+      }
+    }
+    &-paragraph {
+      margin-bottom: 2rem;
+    }
+    .person-name {
+      @include heading;
+      font-weight: 600;
+      font-size: 25px;
+      line-height: 29px;
+    }
+    .person-role {
+      font-size: 15px;
+      line-height: 165.4%;
+    }
+  }
+  &-separate {
+    border-top: 1px solid #bbb;
+      max-width: 110rem;
+      margin: 11rem auto;
+  }
+
+  .benefits {
+    display: flex;
+    justify-content: space-between;
+    max-width: 110rem;
+    margin: 0 auto;
+  }
+}
