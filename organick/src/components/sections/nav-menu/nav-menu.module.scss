@@ -1,16 +1,15 @@
 @import '../../../Styles/global.scss';
 
 .nav-menu {
+  height: 20vh;
   padding-top: 7rem;
   padding-bottom: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.9);
-  //
-  max-width: 160rem;
-  margin: 0 auto;
-  //
+  @include container();
+  max-width: 170rem;
   &__logo {
     display: flex;
     align-items: center;

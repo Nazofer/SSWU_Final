@@ -1,0 +1,35 @@
+@import '../../../Styles/global.scss';
+
+.hero {
+  height: 80vh;
+  background-image: url('../../../img/hero-background.png');
+  background-size: cover;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14.5rem;
+  &__content {
+    @include container();
+    flex: 1;
+    &-subheading {
+      @include subheading();
+      
+      margin-bottom: 0.8rem;
+    }
+
+    &-heading {
+      @include heading();
+      font-size: 7rem;
+      max-width: 53rem;
+      margin-bottom: 2.3rem;
+    }
+
+    &-button {
+      @include button();
+      background-color: $color-primary-yellow;
+      color: $color-primary-blue;
+    }
+  }
+}
