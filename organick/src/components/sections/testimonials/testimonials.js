@@ -30,7 +30,7 @@ const Testimonials = () => {
       </div>
       <div className={styles.pagination}></div>
       <hr className={styles['testimonials-separate']} />
-      <div class={styles.benefits}>
+      <div className={styles.benefits}>
         <BenefitCard heading={'100%'} paragraph={'Organic'}/>
         <BenefitCard heading={'285'} paragraph={'Active Product'}/>
         <BenefitCard heading={'350+'} paragraph={'Organic Orchads'}/>

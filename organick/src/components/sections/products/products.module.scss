@@ -1,0 +1,23 @@
+@import '../../../styles/global.scss';
+
+.categories {
+  margin-bottom: 20rem;
+  &-subheading {
+    @include subheading();
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  &-heading {
+    @include heading();
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  &__container {
+    @include container();
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}

@@ -1,14 +1,17 @@
-@import '../../../Styles/global.scss';
+@import '../../../styles/global.scss';
 
 .testimonials {
   padding-top: 16.4rem;
   text-align: center;
   position: relative;
+  overflow: hidden;
+  // margin-bottom: 20rem;
+  padding-bottom: 16.4rem;
   & > img {
     position: absolute;
     top: 0;
     bottom: 0;
-    max-height: 120rem;
+    // max-height: 120rem;
   }
   &-bg--left {
     left: 0;
