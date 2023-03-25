@@ -25,9 +25,6 @@
       @include paragraph;
     }
 
-    &-button {
-      @include button;
-    }
   }
   &__cards {
     padding: 4.5rem 0;

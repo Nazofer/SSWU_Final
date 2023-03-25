@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Button from '../../UI/Button/Button';
 import styles from './product-card.module.scss';
 
 // import productImg from '../../../img/products-broccoli.png';
@@ -8,7 +8,7 @@ import { ReactComponent as Rating } from '../../../img/5-stars.svg';
 const ProductCard = props => {
   return (
     <div className={styles.product}>
-      <p className={styles['product-tag']}>{props.type}</p>
+      <Button className={styles['product-tag']}>{props.type}</Button>
       <div className={styles['product-img']}></div>
       <h2 className={styles['product-heading']}>{props.name}</h2>
       <hr className={styles['product-separator']} />

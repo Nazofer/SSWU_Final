@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './hero.module.scss';
-//import Button from '../../UI/Button/Button';
+import Button from '../../UI/Button/Button';
 
 const Hero = () => {
   return (
@@ -12,7 +12,7 @@ const Hero = () => {
         <h1 className={styles['hero__content-heading']}>
           Choose the best healthier way of life
         </h1>
-        <a href='/' className={styles['hero__content-button']}>Explore Now</a>
+        <Button href='/' className={styles['hero-btn']}>Explore Now</Button>
       </div>
     </div>
   );

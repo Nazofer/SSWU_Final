@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './button.module.scss';
+import btnStyles from './button.module.scss';
 
-const Button = (props) => {
+const Button = ({children, className}) => {
   return (
-    <a href='/' className={`${styles.button}`}>
-      {props.children}
+    <a href='/' className={`${btnStyles.button} ${className || ''}`}>
+      {children}
     </a>
   );
 };

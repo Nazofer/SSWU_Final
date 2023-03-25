@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './order-confirmation.module.scss';
-//
+import Button from '../../UI/Button/Button';
 
 const Order = (props) => {
   return (
@@ -25,9 +25,9 @@ const Order = (props) => {
             />
           
         </div>
-        <a href='/' className={styles['order-close']}>
+        <Button href='/' className={styles['order-close']}>
           X
-        </a>
+        </Button>
       </div>
       <div className={styles['order__total']}>
         <h2 className={styles['order__total-cost']}>
@@ -37,9 +37,9 @@ const Order = (props) => {
           {`Discount: $${(+props.discount).toFixed(2)}`}
         </h2>
       </div>
-      <a href='/' className={styles['order-to']}>
+      <Button href='/' className={styles['order-to']}>
         To order
-      </a>
+      </Button>
     </section>
   );
 };

@@ -9,20 +9,11 @@
   border-radius: 30px;
   background-color: $color-background-light-gray;
   &-tag {
-    flex-grow: 0;
-    flex-shrink: 1;
-    padding: 0.6rem 1.2rem;
-    font-family: 'Open Sans';
-    font-style: normal;
     font-weight: 600;
     font-size: 1.6rem;
-    line-height: 2rem;
-    text-align: center;
-    color: $color-white;
-    background-color: $color-primary-blue;
-    display: inline;
-    width: min-content;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
+    line-height: 2rem;
   }
 
   &-img {

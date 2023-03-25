@@ -4,6 +4,7 @@ import aboutImg from '../../../img/about-img.png';
 import AboutCard from './about-card';
 import veganFood from '../../../img/about-vegan-food.svg';
 import aboutMailbox from '../../../img/about-mailbox-quality.svg';
+import Button from '../../UI/Button/Button';
 
 const About = () => {
   return (
@@ -34,9 +35,9 @@ const About = () => {
               img={aboutMailbox}
             />
           </div>
-          <a href='/' className={styles['about__description-button']}>
+          <Button>
             Shop Now
-          </a>
+          </Button>
         </div>
       </div>
     </div>

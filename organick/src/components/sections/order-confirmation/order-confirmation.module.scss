@@ -77,7 +77,6 @@
     }
   }
   &-close {
-    @include button;
     position: absolute;
     bottom: 21%;
     right: -5%;
@@ -85,7 +84,6 @@
     height: 46px;
   }
   &-to {
-    @include button;
     margin: 0 auto;
     padding: 23px 57px !important;
     line-height: 2.3rem;

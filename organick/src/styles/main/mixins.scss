@@ -22,21 +22,6 @@
   color: $color-paragraph-gray;
 }
 
-@mixin button() {
-  border-radius: 16px;
-  padding: 2.8rem 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  font-family: 'Roboto', sans-serif;
-  color: $color-white;
-  font-size: 2rem;
-  font-weight: 700;
-  background-color: $color-primary-blue;
-  width: fit-content;
-}
-
 @mixin container() {
   max-width: 150rem;
   padding-left: 5rem;
