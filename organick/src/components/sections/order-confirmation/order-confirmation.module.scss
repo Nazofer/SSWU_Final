@@ -9,8 +9,6 @@
     @include container;
     display: flex;
     align-items: center;
-    //justify-content: space-between;
-
     position: relative;
     &-img {
       background-image: url('../../../img/products-pistachios.png');
@@ -27,10 +25,6 @@
       font-weight: 600;
       font-size: 4rem;
       line-height: 4.7rem;
-    }
-    &-heading {
-    }
-    &-price {
     }
     &-discount {
       font-weight: 700;
@@ -51,7 +45,6 @@
         display: inline-block;
         padding: 3rem;
         width: 13rem;
-
         background: #ffffff;
         border: 2px solid #274c5b;
         border-radius: 16px;

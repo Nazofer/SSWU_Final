@@ -12,21 +12,18 @@
   height: 36rem;
 
   &__text {
+    
     padding-left: 5.4rem;
     // max-width: 27.7rem;
     &-heading {
-      @include heading();
+      
       font-size: 4rem;
       max-width: 27rem;
-    }
-
-    &-subheading {
-      @include subheading();
+      line-height: 4.7rem;
     }
   }
 
   &--1 {
-    color: $color-white;
     background-image: url('../../../img/ads-banner1.png');
   }
 

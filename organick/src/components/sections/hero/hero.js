@@ -1,17 +1,18 @@
 import React from 'react';
 import styles from './hero.module.scss';
 import Button from '../../UI/Button/Button';
+import { Subheading, HeroHeading } from '../../UI/Typography/typography';
 
 const Hero = () => {
   return (
     <div className={`${styles.hero}`}>
       <div className={styles['hero__content']}>
-        <h3 className={styles['hero__content-subheading']}>
+        <Subheading className={styles['hero__content-subheading']}>
           100% Natural Food
-        </h3>
-        <h1 className={styles['hero__content-heading']}>
+        </Subheading>
+        <HeroHeading className={styles['hero-heading']}>
           Choose the best healthier way of life
-        </h1>
+        </HeroHeading>
         <Button href='/' className={styles['hero-btn']}>Explore Now</Button>
       </div>
     </div>

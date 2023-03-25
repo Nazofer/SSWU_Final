@@ -10,6 +10,7 @@ const Ads = () => {
         className="banner--1"
         heading="Get Garden Fresh Fruits"
         subheading="Natural!!"
+        textColor="white"
       />
       <Banner
         className="banner--2"

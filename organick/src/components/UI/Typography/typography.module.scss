@@ -1,0 +1,13 @@
+@import '../../../styles/global.scss';
+
+.paragraph {
+  @include paragraph;
+}
+
+.subheading {
+  @include subheading;
+}
+
+.heading {
+  @include heading;
+}
