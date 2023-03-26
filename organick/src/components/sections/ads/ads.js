@@ -1,11 +1,11 @@
 import React from 'react';
 import Banner from './banner';
-
+import WidthContainer from '../../UI/WidthContainer/container';
 import styles from './ads.module.scss';
 
 const Ads = () => {
   return (
-    <div className={styles.banners}>
+    <WidthContainer className={styles.banners}>
       <Banner
         className="banner--1"
         heading="Get Garden Fresh Fruits"
@@ -17,7 +17,7 @@ const Ads = () => {
         heading="Get 10% off on Vegetables"
         subheading="Offer!!"
       />
-    </div>
+    </WidthContainer>
   );
 };
 

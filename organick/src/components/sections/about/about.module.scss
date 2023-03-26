@@ -11,20 +11,13 @@
     }
   }
   &__description {
-
     max-width: 69rem;
     &-subheading {
       margin-bottom: 0.8rem;
-      @include subheading;
     }
     &-heading {
       margin-bottom: 1.4rem;
-      @include heading;
     }
-    &-paragraph {
-      @include paragraph;
-    }
-
   }
   &__cards {
     padding: 4.5rem 0;
@@ -32,11 +25,9 @@
     flex-direction: column;
     gap: 3rem;
   }
-}
-
-.container {
-  @include container();
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

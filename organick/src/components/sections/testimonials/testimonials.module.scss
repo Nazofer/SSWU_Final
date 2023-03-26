@@ -21,16 +21,12 @@
     transform: rotate(180deg);
   }
   &-subheading {
-    @include subheading;
     margin-bottom: 0.8rem;
   }
   &-heading {
-    @include heading;
     margin-bottom: 5.1rem;
   }
   .feedback {
-    @include container;
-    @include paragraph;
     max-width: 80rem;
     &__person {
       &-avatar {
@@ -47,14 +43,12 @@
       margin-bottom: 2rem;
     }
     .person-name {
-      @include heading;
       font-weight: 600;
-      font-size: 25px;
-      line-height: 29px;
+      font-size: 2.5rem;
+      line-height: 2.9rem;
     }
     .person-role {
-      font-size: 15px;
-      line-height: 165.4%;
+      font-size: 1.5rem;
     }
   }
   &-separate {
@@ -67,6 +61,5 @@
     display: flex;
     justify-content: space-between;
     max-width: 110rem;
-    margin: 0 auto;
   }
 }

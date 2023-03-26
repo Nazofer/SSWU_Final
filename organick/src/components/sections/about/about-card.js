@@ -1,5 +1,6 @@
 import React from 'react'; 
 import styles from './about-card.module.scss'
+import { Heading, Paragraph } from '../../UI/Typography/typography';
 
  const AboutCard = (props) => {
   return (
@@ -8,8 +9,8 @@ import styles from './about-card.module.scss'
         <img src={props.img} alt="" />
       </div>
       <div className={styles['card__desc']}>
-        <h3 className={styles['card__desc-heading']}>{props.heading}</h3>
-        <p className={styles['card__desc-paragraph']}>{props.paragraph}</p>
+        <Heading className={styles['card__desc-heading']}>{props.heading}</Heading>
+        <Paragraph>{props.paragraph}</Paragraph>
       </div>
     </div>
   );

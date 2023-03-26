@@ -13,7 +13,6 @@ export const Heading = ({ children, className, textColor }) => {
 };
 
 export const Subheading = ({ children, className, textColor }) => {
-  console.log(textColor);
   return (
     <h3
       style={{ color: textColor || '' }}
@@ -28,7 +27,7 @@ export const Paragraph = ({ children, className, textColor }) => {
   return (
     <p
       style={{ color: textColor || '' }}
-      className={`${typography.heading} ${className || ''}`}
+      className={`${typography.paragraph} ${className || ''}`}
     >
       {children}
     </p>

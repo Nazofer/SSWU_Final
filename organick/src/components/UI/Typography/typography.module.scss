@@ -1,7 +1,11 @@
 @import '../../../styles/global.scss';
 
 .paragraph {
-  @include paragraph;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 165.4%;
+  color: $color-paragraph-gray;
 }
 
 .subheading {

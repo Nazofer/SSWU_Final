@@ -5,24 +5,26 @@ import AboutCard from './about-card';
 import veganFood from '../../../img/about-vegan-food.svg';
 import aboutMailbox from '../../../img/about-mailbox-quality.svg';
 import Button from '../../UI/Button/Button';
+import { Heading, Subheading, Paragraph } from '../../UI/Typography/typography';
+import WidthContainer from '../../UI/WidthContainer/container'; 
 
 const About = () => {
   return (
     <div className={styles.about}>
-      <div className={styles.container}>
+      <WidthContainer className={styles['about__container']}>
         <div className={styles['about__image']}>
           <img src={aboutImg} alt='' />
         </div>
         <div className={styles['about__description']}>
-          <h3 className={styles['about__description-subheading']}>About Us</h3>
-          <h2 className={styles['about__description-heading']}>
+          <Subheading className={styles['about__description-subheading']}>About Us</Subheading>
+          <Heading className={styles['about__description-heading']}>
             We Believe in Working Accredited Farmers
-          </h2>
-          <p className={styles['about__description-paragraph']}>
+          </Heading>
+          <Paragraph className={styles['about__description-paragraph']}>
             Simply dummy text of the printing and typesetting industry. Lorem
             had ceased to been the industry's standard dummy text ever since the
             1500s, when an unknown printer took a galley.
-          </p>
+          </Paragraph>
           <div className={styles['about__cards']}>
             <AboutCard
               heading='Organic Foods Only'
@@ -35,11 +37,11 @@ const About = () => {
               img={aboutMailbox}
             />
           </div>
-          <Button>
+          <Button showArrow={true}>
             Shop Now
           </Button>
         </div>
-      </div>
+      </WidthContainer>
     </div>
   );
 };

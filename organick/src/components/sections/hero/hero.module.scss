@@ -4,22 +4,16 @@
   height: calc(100vh - 208px);
   background-image: url('../../../img/hero-background.png');
   background-size: cover;
-  flex: 1;
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 14.5rem;
   &__content {
-    @include container();
-    flex: 1;
+    width: 100%;
     &-subheading {
-      // @include subheading();
       margin-bottom: 0.8rem;
     }
-
     .hero-heading {
-      // @include heading();
       font-size: 7rem;
       max-width: 53rem;
       margin-bottom: 2.3rem;
