@@ -4,6 +4,7 @@ import Button from '../../UI/Button/Button';
 import { Heading } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
 import Form from './order-form/order-form';
+import ProductQuantityInput from '../products/product-quantity-input/input';
 
 const Order = (props) => {
   const [isOrderBtnClicked, setIsOrderBtnClicked] = useState(false);
@@ -27,17 +28,7 @@ const Order = (props) => {
           </span>
         </div>
         <div className={styles['product__quantity']}>
-          <label
-            for='product-quantity'
-            className={styles['product__quantity-label']}
-          >
-            Quantity:
-          </label>
-          <input
-            type='number'
-            id='product-quantity'
-            className={styles['product__quantity-input']}
-          />
+          <ProductQuantityInput/>
         </div>
         <Button className={styles['order-close']}>X</Button>
       </WidthContainer>
