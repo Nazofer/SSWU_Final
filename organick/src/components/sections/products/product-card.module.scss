@@ -8,6 +8,9 @@
   padding: 3rem;
   border-radius: 30px;
   background-color: $color-background-light-gray;
+  &:hover {
+    cursor: pointer;
+  }
   &-tag {
     font-weight: 600;
     font-size: 1.6rem;

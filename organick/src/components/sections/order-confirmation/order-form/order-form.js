@@ -36,7 +36,7 @@ const Form = () => {
           inptPlaceholder={'Enter your phone:'}
         />
       </form>
-      {/* <Button>Confirm</Button> */}
+      <Button showArrow={true}>Confirm</Button>
     </WidthContainer>
   );
 };

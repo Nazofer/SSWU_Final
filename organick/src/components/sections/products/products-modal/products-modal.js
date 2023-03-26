@@ -7,10 +7,10 @@ import Button from '../../../UI/Button/Button';
 import WidthContainer from '../../../UI/WidthContainer/container';
 import ProductQuantityInput from '../product-quantity-input/input';
 
-const ProductForm = () => {
+const ProductForm = ({ onOpenModal }) => {
   return (
     <div className={styles.product}>
-      <WidthContainer>
+      <WidthContainer className={styles['product__container']}>
         <div className={styles['product__details']}>
           <div className={styles['product__details-img']}></div>
           {/* FLEX CONTAINER */}
@@ -46,6 +46,7 @@ const ProductForm = () => {
             and 80% of the carbs in raw.
           </Paragraph>
         </div>
+        <Button onClick={onOpenModal} className={styles['product-close']}>Х</Button>
       </WidthContainer>
     </div>
   );
