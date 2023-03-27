@@ -17,7 +17,7 @@ function App() {
               exact
               path='/cart'
               element={
-                <CartBody name='Health Pistachios' discount='7' price='20' />
+                <CartBody/>
               }
             />
             {/* <Route path="*" element={<NotFound/>}/>   */}

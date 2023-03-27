@@ -1,12 +1,8 @@
-import React from 'react'; 
+import React from 'react';
 import Order from '../../components/sections/order-confirmation/order-confirmation';
 
- const CartBody = ({name, discount, price}) => {
-  return (
-    <>
-      <Order name={name} discount={discount} price={price}></Order>
-    </>
-  );
- } 
+const CartBody = () => {
+  return <Order></Order>;
+};
 
- export default CartBody;
+export default CartBody;

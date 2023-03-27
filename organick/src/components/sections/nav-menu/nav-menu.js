@@ -6,32 +6,25 @@ import styles from './nav-menu.module.scss';
 import LogoMain from '../../UI/LogoMain/logo-main';
 import { Heading } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
+import { useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavMenu = () => {
+  const cartCounter = useSelector(state => state.cartCounter);
+
   return (
     <WidthContainer className={styles['wrapper']}>
       <nav className={styles['nav-menu']}>
         <LogoMain />
         <div className={styles['nav-menu__links']}>
-          <a href='/header' className={styles.link}>
-            Home
-          </a>
-          <a href='/about' className={styles.link}>
-            About
-          </a>
-          <a href='/pages' className={`${styles.link} ${styles['pages-btn']}`}>
-            Pages
-            <ArrDown />
-          </a>
-          <a href='/shop' className={styles.link}>
-            Shop
-          </a>
-          <a href='/projects' className={styles.link}>
-            Projects
-          </a>
-          <a href='/news' className={styles.link}>
-            News
-          </a>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink>About</NavLink>
+        <NavLink>
+          Pages <ArrDown/>
+        </NavLink>
+        <NavLink>Shop</NavLink>
+        <NavLink>Projects</NavLink>
+        <NavLink>News</NavLink>
         </div>
         <div className={styles['nav-menu__search']}>
           <div className={styles.search}>
@@ -46,10 +39,10 @@ const NavMenu = () => {
             </a>
           </div>
           <div className={styles.cart}>
-            <a href='/' className={styles['btn']}>
+            <Link to='cart' className={styles['btn']}>
               <Cart />
-            </a>
-            <Heading className={styles['cart-text']}>{`Cart (${0})`}</Heading>
+            </Link>
+            <Heading className={styles['cart-text']}>{`Cart (${cartCounter.value})`}</Heading>
           </div>
         </div>
       </nav>

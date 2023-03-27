@@ -12,17 +12,18 @@
     &__links {
       display: flex;
       gap: 4.5rem;
-      .link {
-        @include heading();
-        font-weight: 700;
-        font-size: 2rem;
-        line-height: 2.3rem;
-      }
-      .pages-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+      
+    }
+    &__links a {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 2rem;
+  
+      color: $color-primary-blue;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     &__search {
       display: flex;

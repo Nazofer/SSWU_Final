@@ -1,7 +1,6 @@
 @import '../../../../../styles/global.scss';
 
 .product {
-  padding-top: 15rem;
   display: flex;
   align-items: center;
   position: relative;
@@ -37,31 +36,11 @@
     line-height: 2.8rem;
     color: #b8b8b8;
     text-decoration: line-through;
-  } 
-  &__quantity {
-    &-label {
-      font-weight: 700;
-      font-size: 3.2rem;
-      line-height: 3.8rem;
-      margin-right: 2rem;
-    }
-    &-input {
-      display: inline-block;
-      padding: 3rem;
-      width: 13rem;
-      background: $color-white;
-      border: 2px solid #274c5b;
-      border-radius: 16px;
-      font-family: 'Roboto', sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 2rem;
-    }
   }
   &-remove {
     position: absolute;
-    bottom: 21%;
-    right: -5%;
+    bottom: 38%;
+    right: -8%;
     width: 64px;
     height: 46px;
   }
