@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductCard from './product-card';
 import { Subheading, Heading } from '../../UI/Typography/typography';
 import Button from '../../UI/Button/Button';
@@ -7,10 +7,14 @@ import WidthContainer from '../../UI/WidthContainer/container';
 import ProductForm from './products-modal/products-modal';
 import ProductBackdrop from './products-modal/product-backdrop';
 import { db_products } from '../../../db/db';
+import { storage } from '../../../db/firebase';
+import { ref, listAll, getDownloadURL } from 'firebase/storage';
 
 const Products = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [imageList, setImageList] = useState([]);
+  const imageListRef = ref(storage, 'images/');
 
   const openModalHandler = (e) => {
     e?.preventDefault();
@@ -25,6 +29,23 @@ const Products = () => {
     //console.log('product selected', selectedItem);
     setSelectedProduct(selectedItem);
   };
+
+  useEffect(() => {
+    listAll(imageListRef).then((response) => {
+      console.log(response);
+      response.items.forEach((element) => {
+        getDownloadURL(element).then((url) => {
+          setImageList((prev) => [...prev, url]);
+        });
+      })
+    });
+  }, []);
+
+  const ImagesList = imageList.map((url) => {
+    return <img src={url} alt="" />
+  })
+
+  console.log(imageList.length);
 
   const ProductsList = db_products.map((product) => (
     <ProductCard
@@ -41,6 +62,7 @@ const Products = () => {
 
   return (
     <div className={styles.categories}>
+      {ImagesList}
       <Subheading className={styles['categories-subheading']}>
         Categories
       </Subheading>
