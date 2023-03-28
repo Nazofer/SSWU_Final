@@ -1,6 +1,8 @@
 @import '../../../styles/global.scss';
 
 .hero {
+  position: relative;
+  z-index: 100;
   height: calc(100vh - 208px);
   background-image: url('../../../img/hero-background.png');
   background-size: cover;
