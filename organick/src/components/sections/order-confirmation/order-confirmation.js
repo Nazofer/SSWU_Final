@@ -16,8 +16,8 @@ const Order = (props) => {
 
   const cartCounter = useSelector((state) => state.cartCounter);
   const cart = useSelector((state) => state.cart);
-  const productsAmount = useRef();
-  const dispatch = useDispatch();
+  // const productsAmount = useRef();
+  // const dispatch = useDispatch();
 
   console.log('cart', cart);
   console.log('cart counter', cartCounter);
@@ -32,6 +32,8 @@ const Order = (props) => {
       // onSelectItem={selectProductHandler}
       key={product.id}
       id={product.id}
+      url={product.url}
+      quantity={product.quantity}
     />
   ));
 

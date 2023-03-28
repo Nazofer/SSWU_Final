@@ -9,7 +9,7 @@ import ProductPrice from '../../../products/product-price';
 const OrderElement = (props) => {
   return (
     <div className={styles['product']}>
-      <div className={styles['product-img']}></div>
+      <div style={{backgroundImage: `url(${props.url})`}} className={styles['product-img']}></div>
       <div className={styles['product-wrapper']}>
         <Heading className={styles['product-name']}>{props.name}</Heading>
         <ProductPrice
@@ -18,7 +18,7 @@ const OrderElement = (props) => {
           discount={props.discount}
         />
       </div>
-      <ProductQuantityInput />
+      <ProductQuantityInput quantity={props.quantity}/>
       <Button className={styles['product-remove']}>X</Button>
     </div>
   );

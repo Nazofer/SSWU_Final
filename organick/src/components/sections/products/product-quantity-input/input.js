@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './input.module.scss';
 
 const ProductQuantityInput = React.forwardRef((props, ref) => {
-  const [inputQuantity, setInputQuantity] = useState(1);
+  const [inputQuantity, setInputQuantity] = useState(props.quantity || 1);
   
   const inputQuantityHandler = (e) => {
     setInputQuantity(e.target.value);

@@ -30,6 +30,7 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
       discount: selectedProduct.discount,
       quantity: selectedProductAmount,
       id: selectedProduct.id,
+      url: selectedProduct.url,
     };
 
     dispatch(addItemToCart(addedItem));
@@ -41,7 +42,7 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
     <div className={styles.product}>
       <WidthContainer className={styles['product__container']}>
         <div className={styles['product__details']}>
-          <div className={styles['product__details-img']}></div>
+          <div style={{backgroundImage: `url(${selectedProduct.url})`}} className={styles['product__details-img']}></div>
           <div className={styles['product__details-info']}>
             <Heading className={styles['product-name']}>
               {selectedProduct.name}

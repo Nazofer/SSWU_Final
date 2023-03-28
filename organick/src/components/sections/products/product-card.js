@@ -6,16 +6,18 @@ import { Heading } from '../../UI/Typography/typography';
 import { ReactComponent as Rating } from '../../../img/5-stars.svg';
 import ProductPrice from './product-price';
 
-const ProductCard = ({ type, name, price, discount, onOpenModal, onSelectItem, id}) => {
+const ProductCard = ({ type, name, price, discount, onOpenModal, onSelectItem, id, url}) => {
   const selectProduct = () => {
     onOpenModal();
     onSelectItem(id);
   }
 
+  //console.log('url:', url);
+
   return (
     <div className={styles.product} onClick={selectProduct}>
       <Button className={styles['product-tag']}>{type}</Button>
-      <div className={styles['product-img']}></div>
+      <div style={{backgroundImage: `url(${url})`}} className={styles['product-img']}></div>
       <Heading className={styles['product-heading']}>{name}</Heading>
       <hr className={styles['product-separator']} />
       <p className={styles['product__parameters']}>
