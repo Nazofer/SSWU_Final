@@ -35,8 +35,8 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
     };
 
     dispatch(addItemToCart(addedItem));
-    console.log('counter:', cartCounter);
-    console.log('cart:', cart);
+    // console.log('counter:', cartCounter);
+    // console.log('cart:', cart);
   };
 
   return (

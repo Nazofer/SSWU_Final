@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductCard from './product-card';
 import { Subheading, Heading } from '../../UI/Typography/typography';
 import Button from '../../UI/Button/Button';
@@ -14,11 +14,19 @@ const Products = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [productsData, setProductsData] = useState([]);
-  //console.log(productsData);
+  const [showAll, setShowAll] = useState(false);
+
+  const toggleShowAll = (e) => {
+    e.preventDefault();
+    setShowAll(!showAll);
+  };
+
+  const productsList = showAll
+    ? productsData
+    : productsData.slice(0, productsData.length / 2);
 
   const openModalHandler = (e) => {
     e?.preventDefault();
-    //console.log('modal clicked');
     setIsModalOpened((prev) => !prev);
   };
 
@@ -26,20 +34,20 @@ const Products = () => {
     const selectedItem = productsData.find(
       (element) => element.id === product_id
     );
-    //console.log('product selected', selectedItem);
     setSelectedProduct(selectedItem);
   };
 
-  useEffect( () => {
+  useEffect(() => {
     getDocs(collection(db, 'Products')).then((querySnapshot) => {
-      //console.log(querySnapshot);
       setProductsData([]);
-      querySnapshot.forEach((el) => setProductsData((prev) => [...prev, el.data()]));
+      querySnapshot.forEach((el) =>
+        setProductsData((prev) => [...prev, el.data()])
+      );
+      setProductsData((prev) => prev.sort((a, b) => b.discount - a.discount));
     });
-  }, [])
+  }, []);
 
-
-  const ProductsList = productsData.map((product) => (
+  const ProductsList = productsList.map((product) => (
     <ProductCard
       type={product.type}
       name={product.name}
@@ -49,7 +57,6 @@ const Products = () => {
       url={product.url}
       onOpenModal={openModalHandler}
       onSelectItem={selectProductHandler}
-      // key={product.id}
       id={product.id}
     />
   ));
@@ -63,7 +70,9 @@ const Products = () => {
       <WidthContainer className={styles['categories__container']}>
         {ProductsList}
       </WidthContainer>
-      <Button showArrow={true}>Load More</Button>
+      <Button showArrow={true} onClick={toggleShowAll}>
+        {showAll ? 'Show Less' : 'Show More'}
+      </Button>
       {isModalOpened && (
         <>
           <ProductBackdrop onOpenModal={openModalHandler} />
@@ -73,7 +82,7 @@ const Products = () => {
           />
         </>
       )}
-      {selectedProduct && <CartLink className={styles['cart-link']}/>}
+      {selectedProduct && <CartLink className={styles['cart-link']} />}
     </div>
   );
 };

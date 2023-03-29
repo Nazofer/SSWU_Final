@@ -16,14 +16,15 @@
     &__details {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-evenly;
       margin-bottom: 9rem;
       &-img {
         background-color: #fffafa;
         background-blend-mode: multiply;
-        background-size: cover;
-        width: 59rem;
-        height: 56rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 40rem;
+        height: 40rem;
       }
       &-info {
         .product-name {
