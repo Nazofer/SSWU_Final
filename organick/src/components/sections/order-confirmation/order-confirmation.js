@@ -14,13 +14,9 @@ const Order = (props) => {
     setIsOrderBtnClicked(true);
   };
 
-  const cartCounter = useSelector((state) => state.cartCounter);
-  const cart = useSelector((state) => state.cart);
-  // const productsAmount = useRef();
-  // const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.products);
 
-  console.log('cart', cart);
-  console.log('cart counter', cartCounter);
+  //console.log('cart', cart);
 
   const OrderedProductsList = cart.map((product) => (
     <OrderElement
@@ -37,22 +33,27 @@ const Order = (props) => {
     />
   ));
 
-  const bill = cart.reduce((acc, curr) => {
-    acc.price += +curr.price * +curr.quantity;
-    acc.discount += +curr.discount * +curr.quantity;
-    return acc;
-  }, {price: 0, discount: 0});
+  const bill = cart.reduce(
+    (acc, curr) => {
+      acc.price += +curr.price * +curr.quantity;
+      acc.discount += +curr.discount * +curr.quantity;
+      return acc;
+    },
+    { price: 0, discount: 0 }
+  );
 
   return (
     <section className={styles['order']}>
       {/* <OrderElement name={props.name} price={props.price} discount={props.discount}/> */}
-      <WidthContainer className={styles['order__list']}>{OrderedProductsList}</WidthContainer>
+      <WidthContainer className={styles['order__list']}>
+        {OrderedProductsList}
+      </WidthContainer>
       <WidthContainer className={styles['order__total']}>
         <Heading className={styles['order__total-cost']}>
-          {`Total cost: $${(bill.price - bill.discount)}`}
+          {`Total cost: $${bill.price - bill.discount}`}
         </Heading>
         <Heading className={styles['order__total-cost']}>
-          {`Discount: $${(bill.discount)}`}
+          {`Discount: $${bill.discount}`}
         </Heading>
       </WidthContainer>
 

@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './order-element.module.scss';
 // import WidthContainer from '../../../../UI/WidthContainer/container';
 import { Heading } from '../../../../UI/Typography/typography';
 import ProductQuantityInput from '../../../products/product-quantity-input/input';
 import Button from '../../../../UI/Button/Button';
 import ProductPrice from '../../../products/product-price';
+import { useDispatch } from 'react-redux';
+import {
+  removeItemFromCart,
+  setCartItemQuantity,
+} from '../../../../../redux/cartSlice';
 
 const OrderElement = (props) => {
+
+  const [inputQuantity, setInputQuantity] = useState(props.quantity || '');
+  
+  const inputQuantityHandler = (e) => {
+    //console.log(e.target.value);
+    setInputQuantity(+e.target.value);
+     // setItemQuantity(+e.target.value);
+    dispatch(setCartItemQuantity({ quantity: +e.target.value, id: props.id }));
+  }
+
+  const dispatch = useDispatch();
+
+  const removeFromCartHandler = e => {
+    e.preventDefault();
+    dispatch(removeItemFromCart({ id: props.id, quantity: props.quantity }));
+  };
+
+
   return (
     <div className={styles['product']}>
       <div style={{backgroundImage: `url(${props.url})`}} className={styles['product-img']}></div>
@@ -18,8 +41,8 @@ const OrderElement = (props) => {
           discount={props.discount}
         />
       </div>
-      <ProductQuantityInput quantity={props.quantity}/>
-      <Button className={styles['product-remove']}>X</Button>
+      <ProductQuantityInput inputQuantity={inputQuantity} inputQuantityHandler={inputQuantityHandler}/>
+      <Button className={styles['product-remove']} onClick={removeFromCartHandler}>X</Button>
     </div>
   );
 };

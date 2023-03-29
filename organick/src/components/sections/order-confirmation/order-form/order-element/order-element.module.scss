@@ -1,11 +1,10 @@
-@import '../../../../../styles/global.scss';
+@import '../../../../../styles/main/colors.scss';
 
 .product {
   display: flex;
   align-items: center;
   position: relative;
   &-img {
-    background-image: url('../../../../../img/products-pistachios.png');
     background-position: center;
     background-size: cover;
     background-color: rgba(253, 176, 45, 0.16);

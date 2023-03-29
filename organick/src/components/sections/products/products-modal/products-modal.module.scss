@@ -1,4 +1,4 @@
-@import '../../../../styles/global.scss';
+@import '../../../../styles/main/colors.scss';
 
 .product {
   // display: none;
@@ -20,7 +20,6 @@
       margin-bottom: 9rem;
       &-img {
         background-color: #fffafa;
-        background-image: url('../../../../img/products-zucchini.png');
         background-blend-mode: multiply;
         background-size: cover;
         width: 59rem;

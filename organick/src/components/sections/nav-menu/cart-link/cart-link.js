@@ -6,7 +6,7 @@ import { ReactComponent as Cart } from '../../../../img/nav-menu-cart.svg';
 import IconLink from '../icon-link/icon-link';
 
 const CartLink = ({ className }) => {
-  const cartCounter = useSelector((state) => state.cartCounter);
+  const cartCounter = useSelector((state) => state.cart.cartCounter);
   return (
     <div className={`${styles.cart} ${className || ''}`}>
       <IconLink linkTo='/cart' className={styles['btn']}>
@@ -14,7 +14,7 @@ const CartLink = ({ className }) => {
       </IconLink>
       <Heading
         className={styles['cart-text']}
-      >{`Cart (${cartCounter.value})`}</Heading>
+      >{`Cart (${cartCounter})`}</Heading>
     </div>
   );
 };

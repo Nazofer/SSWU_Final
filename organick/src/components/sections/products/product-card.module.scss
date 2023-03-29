@@ -1,4 +1,4 @@
-@import '../../../styles/global.scss';
+@import '../../../styles/main/colors.scss';
 
 .product {
   display: flex;
@@ -20,7 +20,6 @@
   }
 
   &-img {
-    background-image: url('../../../img/products-broccoli.png');
     background-position: center;
     background-color: $color-background-light-gray;
     background-blend-mode: multiply;

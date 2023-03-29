@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './products-modal.module.scss';
 import { ReactComponent as Rating } from '../../../../img/5-stars.svg';
 import { Heading, Paragraph } from '../../../UI/Typography/typography';
@@ -8,22 +8,23 @@ import WidthContainer from '../../../UI/WidthContainer/container';
 import ProductQuantityInput from '../product-quantity-input/input';
 
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addItemToCart,
-  increaseCartCounter,
-} from '../../../../redux/cartSlice.js';
-
+import { addItemToCart } from '../../../../redux/cartSlice';
 
 const ProductForm = ({ onOpenModal, selectedProduct }) => {
-  const cartCounter = useSelector(state => state.cartCounter);
-  const cart = useSelector(state => state.cart);
-  const productsAmount = useRef();
+  const cartCounter = useSelector(state => state.cart.cartCounter);
+  const cart = useSelector(state => state.cart.products);
+  // const productsAmount = useRef();
   const dispatch = useDispatch();
+  const [inputQuantity, setInputQuantity] = useState(1);
+
+  const inputQuantityHandler = (e) => {
+    // e.preventDefault();
+    setInputQuantity(+e.target.value);
+  }
 
   const addToCartHandler = e => {
     e.preventDefault();
-    const selectedProductAmount = +productsAmount.current.value;
-    dispatch(increaseCartCounter(selectedProductAmount));
+    const selectedProductAmount = inputQuantity;
     const addedItem = {
       name: selectedProduct.name,
       price: selectedProduct.price,
@@ -56,7 +57,7 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
               the 1500s, when an unknown printer took a galley.
             </Paragraph>
             <div className={styles['product__controls']}>
-              <ProductQuantityInput ref={productsAmount}/>
+              <ProductQuantityInput inputQuantity={inputQuantity} inputQuantityHandler={inputQuantityHandler}/>
               <Button showArrow={true} onClick={addToCartHandler}>Add To Cart</Button>
             </div>
           </div>

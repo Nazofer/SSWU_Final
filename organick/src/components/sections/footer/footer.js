@@ -5,6 +5,7 @@ import { Heading, Paragraph } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
 import ContactUs from './contact-item';
 import FooterColumn from './footer-column';
+import SocialLinks from './footer-socials';
 
 const Footer = () => {
   return (
@@ -20,9 +21,7 @@ const Footer = () => {
           <LogoMain/>
           <Paragraph>Simply dummy text of the printing and typesetting industry.
 Lorem Ipsum simply dummy text of the printing </Paragraph>
-          <div className={styles['footer-socials']}>
-
-          </div>
+          <SocialLinks/>
         </FooterColumn>
         <FooterColumn className={styles['footer-column--right']}>
           <Heading className={styles['footer-contact']}>Utility Pages</Heading>
