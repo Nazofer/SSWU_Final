@@ -3,21 +3,18 @@
 .offers {
   background-color: $color-primary-blue;
   padding: 20rem 0;
-  &__container {
-    @include container();
-  }
 
   &-subheading {
-    @include subheading(0.8rem);
+    margin-bottom: 0.8rem;
   }
 
   &-heading {
-    @include heading(5rem, $color-white);
+    margin-bottom: 5rem;
+    color: $color-white;
   }
-}
-
-.products__container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
 }
