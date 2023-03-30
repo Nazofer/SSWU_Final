@@ -17,6 +17,7 @@ const ProductCard = ({
   url,
 }) => {
   const selectProduct = () => {
+    if (!onOpenModal) return;
     onOpenModal();
     onSelectItem(id);
   };

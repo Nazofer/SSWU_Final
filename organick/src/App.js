@@ -4,6 +4,7 @@ import Footer from './components/sections/footer/footer';
 import MainBody from './pages/main/main';
 import CartBody from './pages/cart/cart';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SuccessBanner from './components/UI/banners/success-banner/success-banner';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 <CartBody/>
               }
             />
+            <Route exact path='/success' element={<SuccessBanner/>}/>
             {/* <Route path="*" element={<NotFound/>}/>   */}
           </Routes>
         </div>
