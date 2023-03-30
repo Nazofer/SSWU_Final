@@ -8,6 +8,7 @@ export const Input = ({
   onChange,
   onBlur,
   invalid,
+  value,
 }) => {
   return (
     <label className={inptStyles.label}>
@@ -18,6 +19,7 @@ export const Input = ({
         className={`${inptStyles.input} ${invalid ? inptStyles.invalid : ''}`}
         onChange={onChange}
         onBlur={onBlur}
+        value={value}
         required
       />
     </label>

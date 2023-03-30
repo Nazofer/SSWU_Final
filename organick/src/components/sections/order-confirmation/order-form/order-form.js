@@ -1,81 +1,65 @@
-import React, { useState, useReducer } from 'react';
+import React from 'react';
 import { Input, Textarea } from './form-input/form-input';
 import WidthContainer from '../../../UI/WidthContainer/container';
 import styles from './order-form.module.scss';
 import Button from '../../../UI/Button/Button';
+import useInputValidation from '../../../form-validation/form-validation';
+import { useNavigate } from "react-router-dom";
 
-const nameRegex = /^[A-Z][a-z]*$/;
-const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/;
-const phoneRegex = /^\d{10}$/;
-
-const inputReducer = (regex) => (state, action) => {
-  if (action.type === 'USER_INPUT') {
-    return { value: action.val, isValid: regex.test(action.val) };
-  } else if (action.type === 'INPUT_BLUR') {
-    return {
-      value: state.value,
-      isValid: regex.test(state.value),
-      isTouched: true,
-    };
-  }
-  return { value: '', isValid: false };
-};
+const nameValidator = (value) => /^[A-Z][a-z]*$/.test(value);
+const emailValidator = (value) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/.test(value);
+const phoneValidator = (value) => /^\d{10}$/.test(value);
+const addressValidator = (value) => value.trim().length > 10;
 
 const Form = () => {
-  const [formIsValid, setFormIsValid] = useState(false);
+  const navigate = useNavigate();
 
-  const emailReducer = inputReducer(emailRegex);
-  const nameReducer = inputReducer(nameRegex);
-  const phoneReducer = inputReducer(phoneRegex);
+  const {
+    value: nameValue,
+    isValid: isNameValid,
+    isTouched: isNameTouched,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetName,
+  } = useInputValidation(nameValidator);
 
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {
-    value: '',
-    isValid: undefined,
-    isTouched: undefined,
-  });
+  const {
+    value: emailValue,
+    isValid: isEmailValid,
+    isTouched: isEmailTouched,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmail,
+  } = useInputValidation(emailValidator);
 
-  const [nameState, dispatchName] = useReducer(nameReducer, {
-    value: '',
-    isValid: undefined,
-    isTouched: undefined,
-  });
+  const {
+    value: phoneValue,
+    isValid: isPhoneValid,
+    isTouched: isPhoneTouched,
+    valueChangeHandler: phoneChangeHandler,
+    inputBlurHandler: phoneBlurHandler,
+    reset: resetPhone,
+  } = useInputValidation(phoneValidator);
 
-  const [phoneState, dispatchPhone] = useReducer(phoneReducer, {
-    value: '',
-    isValid: undefined,
-    isTouched: undefined,
-  });
-
-  const emailChangeHandler = (event) => {
-    dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
-    //setFormIsValid(emailRegex.test(event.target.value) && nameState.isValid);
-  };
-
-  const nameChangeHandler = (event) => {
-    dispatchName({ type: 'USER_INPUT', val: event.target.value });
-    //setFormIsValid(emailState.isValid && nameRegex.test(event.target.value));
-  };
-
-  const phoneChangeHandler = (event) => {
-    //console.log(event.target.value);
-    dispatchPhone({ type: 'USER_INPUT', val: event.target.value });
-    //setFormIsValid(State.isValid && nameRegex.test(event.target.value));
-  };
-
-  const validateEmailHandler = () => {
-    dispatchEmail({ type: 'INPUT_BLUR' });
-  };
-
-  const validateNameHandler = () => {
-    dispatchName({ type: 'INPUT_BLUR' });
-  };
-
-  const validatePhoneHandler = () => {
-    dispatchPhone({ type: 'INPUT_BLUR' });
-  };
+  const {
+    value: addressValue,
+    isValid: isAddressValid,
+    isTouched: isAddressTouched,
+    valueChangeHandler: addressChangeHandler,
+    inputBlurHandler: addressBlurHandler,
+    reset: resetAddress,
+  } = useInputValidation(addressValidator);
 
   const submitHandler = (event) => {
     event.preventDefault();
+    if (!isNameValid || !isEmailValid || !isPhoneValid || !isAddressValid) {
+      return;
+    }
+    resetName();
+    resetEmail();
+    resetAddress()
+    resetPhone();
+    navigate("/success");
   };
 
   return (
@@ -83,33 +67,40 @@ const Form = () => {
       <form className={styles.form}>
         <div className={styles.form__main}>
           <Input
-            invalid={!nameState.isValid && nameState.isTouched}
+            invalid={!isNameValid && isNameTouched}
+            value={nameValue}
             label={'Full Name*'}
             inptType={'text'}
             inptPlaceholder={'Your name:'}
             onChange={nameChangeHandler}
-            onBlur={validateNameHandler}
+            onBlur={nameBlurHandler}
           />
           <Input
-            invalid={!emailState.isValid && emailState.isTouched}
+            invalid={!isEmailValid && isEmailTouched}
+            value={emailValue}
             label={'Your Email*'}
             inptType={'email'}
             inptPlaceholder={'example@yourmail.com:'}
             onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
+            onBlur={emailBlurHandler}
           />
           <Input
+            invalid={!isAddressValid && isAddressTouched}
+            value={addressValue}
             label={'Address*'}
             inptType={'text'}
             inptPlaceholder={'Your company  address:'}
+            onChange={addressChangeHandler}
+            onBlur={addressBlurHandler}
           />
           <Input
-            invalid={!phoneState.isValid && phoneState.isTouched}
+            invalid={!isPhoneValid && isPhoneTouched}
+            value={phoneValue}
             label={'Phone number*'}
-            inptType={'number'}
+            inptType={'tel'}
             inptPlaceholder={'Enter your phone:'}
             onChange={phoneChangeHandler}
-            onBlur={validatePhoneHandler}
+            onBlur={phoneBlurHandler}
           />
         </div>
         <Textarea
@@ -121,6 +112,7 @@ const Form = () => {
           showArrow={true}
           type='submit'
           className={styles['form-button']}
+          onClick={submitHandler}
         >
           Confirm
         </Button>
