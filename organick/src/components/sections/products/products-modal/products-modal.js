@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './products-modal.module.scss';
 import { ReactComponent as Rating } from '../../../../img/5-stars.svg';
 import { Heading, Paragraph } from '../../../UI/Typography/typography';
@@ -7,22 +7,29 @@ import Button from '../../../UI/Button/Button';
 import WidthContainer from '../../../UI/WidthContainer/container';
 import ProductQuantityInput from '../product-card/product-quantity-input/input';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../../../redux/cartSlice';
 
 const ProductForm = ({ onOpenModal, selectedProduct }) => {
-  const cartCounter = useSelector(state => state.cart.cartCounter);
-  const cart = useSelector(state => state.cart.products);
-  // const productsAmount = useRef();
   const dispatch = useDispatch();
   const [inputQuantity, setInputQuantity] = useState(1);
 
   const inputQuantityHandler = (e) => {
     // e.preventDefault();
     setInputQuantity(+e.target.value);
-  }
+  };
 
-  const addToCartHandler = e => {
+  useEffect(() => {
+    // Disable scrolling when the modal is open
+    document.body.classList.add('no-scroll');
+
+    return () => {
+      // Re-enable scrolling when the modal is closed
+      document.body.classList.remove('no-scroll');
+    };
+  }, []);
+
+  const addToCartHandler = (e) => {
     e.preventDefault();
     if (inputQuantity < 1) return;
     const addedItem = {
@@ -43,22 +50,33 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
     <div className={styles.product}>
       <WidthContainer className={styles['product__container']}>
         <div className={styles['product__details']}>
-          <div style={{backgroundImage: `url(${selectedProduct.url})`}} className={styles['product__details-img']}></div>
+          <div
+            style={{ backgroundImage: `url(${selectedProduct.url})` }}
+            className={styles['product__details-img']}
+          ></div>
           <div className={styles['product__details-info']}>
             <Heading className={styles['product-name']}>
               {selectedProduct.name}
             </Heading>
             <Rating />
             <br />
-            <ProductPrice price={selectedProduct.price} discount={selectedProduct.discount} />
+            <ProductPrice
+              price={selectedProduct.price}
+              discount={selectedProduct.discount}
+            />
             <Paragraph className={styles['product-paragraph']}>
               Simply dummy text of the printing and typesetting industry. Lorem
               had ceased to been the industry's standard dummy text ever since
               the 1500s, when an unknown printer took a galley.
             </Paragraph>
             <div className={styles['product__controls']}>
-              <ProductQuantityInput inputQuantity={inputQuantity} inputQuantityHandler={inputQuantityHandler}/>
-              <Button showArrow={true} onClick={addToCartHandler}>Add To Cart</Button>
+              <ProductQuantityInput
+                inputQuantity={inputQuantity}
+                inputQuantityHandler={inputQuantityHandler}
+              />
+              <Button showArrow={true} onClick={addToCartHandler}>
+                Add To Cart
+              </Button>
             </div>
           </div>
         </div>

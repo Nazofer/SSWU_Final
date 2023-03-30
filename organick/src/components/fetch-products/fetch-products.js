@@ -4,14 +4,14 @@ import { db } from '../../db/firebase';
 
 const useFetchProducts = () => {
   const [productsData, setProductsData] = useState([]);
-
+  console.log(productsData);
   useEffect(() => {
     getDocs(collection(db, 'Products')).then((querySnapshot) => {
       setProductsData([]);
       querySnapshot.forEach((el) =>
-        setProductsData((prev) => [...prev, el.data()])
+        setProductsData((prev) => [...prev, el.data()].sort((a, b) => b.discount - a.discount))
       );
-      setProductsData((prev) => prev.sort((a, b) => b.discount - a.discount));
+      // setProductsData((prev) => prev.sort((a, b) => b.discount - a.discount));
     });
   }, []);
 
