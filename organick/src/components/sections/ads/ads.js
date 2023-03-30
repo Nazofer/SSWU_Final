@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from './banner';
+import Banner from './banner/banner';
 import WidthContainer from '../../UI/WidthContainer/container';
 import styles from './ads.module.scss';
 

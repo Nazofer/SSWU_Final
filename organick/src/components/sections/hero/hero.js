@@ -6,7 +6,7 @@ import WidthContainer from '../../UI/WidthContainer/container';
 
 const Hero = () => {
   return (
-    <div className={`${styles.hero}`}>
+    <div className={styles.hero}>
       <WidthContainer className={styles['hero__content']}>
         <Subheading className={styles['hero__content-subheading']}>
           100% Natural Food

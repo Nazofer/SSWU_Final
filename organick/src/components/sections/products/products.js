@@ -1,29 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import ProductCard from './product-card';
+import React, { useState } from 'react';
+import ProductCard from './product-card/product-card';
 import { Subheading, Heading } from '../../UI/Typography/typography';
 import Button from '../../UI/Button/Button';
 import styles from './products.module.scss';
 import WidthContainer from '../../UI/WidthContainer/container';
 import ProductForm from './products-modal/products-modal';
 import ProductBackdrop from './products-modal/product-backdrop';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../../db/firebase';
 import CartLink from '../nav-menu/cart-link/cart-link';
+import useFetchProducts from '../../fetch-products/fetch-products';
 
 const Products = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [productsData, setProductsData] = useState([]);
   const [showAll, setShowAll] = useState(false);
+
+  const productsData = useFetchProducts();
 
   const toggleShowAll = (e) => {
     e.preventDefault();
     setShowAll(!showAll);
   };
-
-  const productsList = showAll
-    ? productsData
-    : productsData.slice(0, productsData.length / 2);
 
   const openModalHandler = (e) => {
     e?.preventDefault();
@@ -37,15 +33,9 @@ const Products = () => {
     setSelectedProduct(selectedItem);
   };
 
-  useEffect(() => {
-    getDocs(collection(db, 'Products')).then((querySnapshot) => {
-      setProductsData([]);
-      querySnapshot.forEach((el) =>
-        setProductsData((prev) => [...prev, el.data()])
-      );
-      setProductsData((prev) => prev.sort((a, b) => b.discount - a.discount));
-    });
-  }, []);
+  const productsList = showAll
+    ? productsData
+    : productsData.slice(0, productsData.length / 2);
 
   const ProductsList = productsList.map((product) => (
     <ProductCard

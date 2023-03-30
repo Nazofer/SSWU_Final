@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paragraph } from '../../UI/Typography/typography';
+import { Paragraph } from '../../../../UI/Typography/typography';
 import styles from './contact-item.module.scss';
 
 const ContactUs = ({ label, link }) => {

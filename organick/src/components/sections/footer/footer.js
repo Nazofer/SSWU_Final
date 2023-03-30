@@ -3,9 +3,9 @@ import styles from './footer.module.scss';
 import LogoMain from '../../UI/LogoMain/logo-main';
 import { Heading, Paragraph } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
-import ContactUs from './contact-item';
-import FooterColumn from './footer-column';
-import SocialLinks from './footer-socials';
+import ContactUs from './footer-column/contact-link/contact-item';
+import FooterColumn from './footer-column/footer-column';
+import SocialLinks from './footer-column/footer-socials/footer-socials';
 
 const Footer = () => {
   return (

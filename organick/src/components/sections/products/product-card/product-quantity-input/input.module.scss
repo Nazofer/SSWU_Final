@@ -1,10 +1,12 @@
+@import '../../../../../styles/main/colors.scss';
+
 .product-label {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 23px;
-  color: #274c5b;
+  color: $color-primary-blue;
   display: flex;
   gap: 2rem;
   align-items: center;
@@ -12,8 +14,8 @@
     display: inline-block;
     padding: 3rem 6rem;
     width: 17rem;
-    background: #ffffff;
-    border: 2px solid #274c5b;
+    background: $color-white;
+    border: 2px solid $color-primary-blue;
     border-radius: 16px;
     font-family: 'Roboto', sans-serif;
     font-style: normal;

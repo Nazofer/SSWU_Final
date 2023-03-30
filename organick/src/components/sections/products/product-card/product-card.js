@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../../UI/Button/Button';
+import Button from '../../../UI/Button/Button';
 import styles from './product-card.module.scss';
-import { Heading } from '../../UI/Typography/typography';
+import { Heading } from '../../../UI/Typography/typography';
 // import productImg from '../../../img/products-broccoli.png';
-import { ReactComponent as Rating } from '../../../img/5-stars.svg';
-import ProductPrice from './product-price';
+import { ReactComponent as Rating } from '../../../../img/5-stars.svg';
+import ProductPrice from './product-price/product-price';
 
 const ProductCard = ({
   type,

@@ -1,8 +1,6 @@
 @import '../../../../styles/main/colors.scss';
 
 .product {
-  // display: none;
-
   z-index: 100;
   position: absolute;
   top: 50%;
@@ -85,9 +83,6 @@
     }
     &__description {
       text-align: center;
-      // &-button {
-      //   margin: 1.6rem 1rem;
-      // }
     }
     &-close {
       padding: 1rem 3rem;

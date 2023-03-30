@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styles from './order-element.module.scss';
 // import WidthContainer from '../../../../UI/WidthContainer/container';
 import { Heading } from '../../../../UI/Typography/typography';
-import ProductQuantityInput from '../../../products/product-quantity-input/input';
+import ProductQuantityInput from '../../../products/product-card/product-quantity-input/input';
 import Button from '../../../../UI/Button/Button';
-import ProductPrice from '../../../products/product-price';
+import ProductPrice from '../../../products/product-card/product-price/product-price';
 import { useDispatch } from 'react-redux';
 import {
   removeItemFromCart,

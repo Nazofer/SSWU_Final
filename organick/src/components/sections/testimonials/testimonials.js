@@ -4,7 +4,7 @@ import avatar1 from '../../../img/testimonials-avatar1.jpg';
 import stars from '../../../img/5-stars.svg';
 import bgLeft from '../../../img/testimonials-left.png';
 import bgRight from '../../../img/testimonials-left.png';
-import BenefitCard from './benefit-card';
+import BenefitCard from './benefit-card/benefit-card';
 import { Heading, Subheading, Paragraph } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
 

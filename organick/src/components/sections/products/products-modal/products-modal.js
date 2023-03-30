@@ -2,10 +2,10 @@ import React, { useRef, useState } from 'react';
 import styles from './products-modal.module.scss';
 import { ReactComponent as Rating } from '../../../../img/5-stars.svg';
 import { Heading, Paragraph } from '../../../UI/Typography/typography';
-import ProductPrice from '../product-price';
+import ProductPrice from '../product-card/product-price/product-price';
 import Button from '../../../UI/Button/Button';
 import WidthContainer from '../../../UI/WidthContainer/container';
-import ProductQuantityInput from '../product-quantity-input/input';
+import ProductQuantityInput from '../product-card/product-quantity-input/input';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../../../../redux/cartSlice';
