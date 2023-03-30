@@ -5,7 +5,7 @@ import banner from '../../../../img/cart-banner.png';
 
  const CartBanner = () => {
   return (
-    <Banner heading='Cart' className={'banner'}/>
+    <Banner heading='Cart' className={styles['banner']}/>
   );
  } 
 

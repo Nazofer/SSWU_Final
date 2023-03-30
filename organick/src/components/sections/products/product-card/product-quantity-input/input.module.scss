@@ -21,5 +21,9 @@
     font-style: normal;
     font-weight: 700;
     font-size: 2rem;
+    &--invalid {
+      border-color: red;
+      background-color: #fbdada;
+    }
   }
 }

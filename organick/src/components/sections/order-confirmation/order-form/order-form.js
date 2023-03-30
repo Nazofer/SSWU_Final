@@ -6,27 +6,27 @@ import Button from '../../../UI/Button/Button';
 
 const nameRegex = /^[A-Z][a-z]*$/;
 const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/;
+const phoneRegex = /^\d{10}$/;
 
-const emailReducer = (state, action) => {
+const inputReducer = (regex) => (state, action) => {
   if (action.type === 'USER_INPUT') {
-    return { value: action.val, isValid: emailRegex.test(action.val) };
+    return { value: action.val, isValid: regex.test(action.val) };
   } else if (action.type === 'INPUT_BLUR') {
-    return { value: state.value, isValid: emailRegex.test(state.value), isTouched: true };
-  }
-  return { value: '', isValid: false };
-};
-
-const nameReducer = (state, action) => {
-  if (action.type === 'USER_INPUT') {
-    return { value: action.val, isValid: nameRegex.test(action.val) };
-  } else if (action.type === 'INPUT_BLUR') {
-    return { value: state.value, isValid: nameRegex.test(state.value), isTouched: true };
+    return {
+      value: state.value,
+      isValid: regex.test(state.value),
+      isTouched: true,
+    };
   }
   return { value: '', isValid: false };
 };
 
 const Form = () => {
   const [formIsValid, setFormIsValid] = useState(false);
+
+  const emailReducer = inputReducer(emailRegex);
+  const nameReducer = inputReducer(nameRegex);
+  const phoneReducer = inputReducer(phoneRegex);
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: '',
@@ -40,14 +40,26 @@ const Form = () => {
     isTouched: undefined,
   });
 
+  const [phoneState, dispatchPhone] = useReducer(phoneReducer, {
+    value: '',
+    isValid: undefined,
+    isTouched: undefined,
+  });
+
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
-    setFormIsValid(emailRegex.test(event.target.value) && nameState.isValid);
+    //setFormIsValid(emailRegex.test(event.target.value) && nameState.isValid);
   };
 
   const nameChangeHandler = (event) => {
     dispatchName({ type: 'USER_INPUT', val: event.target.value });
-    setFormIsValid(emailState.isValid && nameRegex.test(event.target.value));
+    //setFormIsValid(emailState.isValid && nameRegex.test(event.target.value));
+  };
+
+  const phoneChangeHandler = (event) => {
+    //console.log(event.target.value);
+    dispatchPhone({ type: 'USER_INPUT', val: event.target.value });
+    //setFormIsValid(State.isValid && nameRegex.test(event.target.value));
   };
 
   const validateEmailHandler = () => {
@@ -58,16 +70,20 @@ const Form = () => {
     dispatchName({ type: 'INPUT_BLUR' });
   };
 
+  const validatePhoneHandler = () => {
+    dispatchPhone({ type: 'INPUT_BLUR' });
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
   };
 
   return (
-    <WidthContainer className={styles['form__container']}>
-      <form action=''>
-        <div className={styles.main}>
+    <WidthContainer>
+      <form className={styles.form}>
+        <div className={styles.form__main}>
           <Input
-            invalid={nameState.isValid === false && nameState.isTouched}
+            invalid={!nameState.isValid && nameState.isTouched}
             label={'Full Name*'}
             inptType={'text'}
             inptPlaceholder={'Your name:'}
@@ -75,7 +91,7 @@ const Form = () => {
             onBlur={validateNameHandler}
           />
           <Input
-            invalid={emailState.isValid === false  && emailState.isTouched}
+            invalid={!emailState.isValid && emailState.isTouched}
             label={'Your Email*'}
             inptType={'email'}
             inptPlaceholder={'example@yourmail.com:'}
@@ -88,9 +104,12 @@ const Form = () => {
             inptPlaceholder={'Your company  address:'}
           />
           <Input
+            invalid={!phoneState.isValid && phoneState.isTouched}
             label={'Phone number*'}
-            inptType={'tel'}
+            inptType={'number'}
             inptPlaceholder={'Enter your phone:'}
+            onChange={phoneChangeHandler}
+            onBlur={validatePhoneHandler}
           />
         </div>
         <Textarea
@@ -98,8 +117,14 @@ const Form = () => {
           inptType={'text'}
           inptPlaceholder={'Enter your phone:'}
         />
+        <Button
+          showArrow={true}
+          type='submit'
+          className={styles['form-button']}
+        >
+          Confirm
+        </Button>
       </form>
-      <Button showArrow={true}>Confirm</Button>
     </WidthContainer>
   );
 };

@@ -24,12 +24,12 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
 
   const addToCartHandler = e => {
     e.preventDefault();
-    const selectedProductAmount = inputQuantity;
+    if (inputQuantity < 1) return;
     const addedItem = {
       name: selectedProduct.name,
       price: selectedProduct.price,
       discount: selectedProduct.discount,
-      quantity: selectedProductAmount,
+      quantity: inputQuantity,
       id: selectedProduct.id,
       url: selectedProduct.url,
     };
