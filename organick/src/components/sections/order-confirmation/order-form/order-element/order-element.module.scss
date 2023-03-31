@@ -7,10 +7,11 @@
   &-img {
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     background-color: rgba(253, 176, 45, 0.16);
     background-blend-mode: multiply;
     width: 29rem;
-    height: 23rem;
+    height: 26rem;
   }
   &-wrapper {
     margin: 0 auto 0 2rem;
