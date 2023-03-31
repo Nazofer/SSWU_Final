@@ -1,9 +1,9 @@
 import React from 'react';
-import Banner from './banner/banner';
+import Banner from './about-banner/about-banner';
 import WidthContainer from '../../UI/WidthContainer/container';
-import styles from './ads.module.scss';
+import styles from './about-ads.module.scss';
 
-const Ads = () => {
+const AboutAds = () => {
   return (
     <WidthContainer className={styles.banners}>
       <Banner
@@ -21,4 +21,4 @@ const Ads = () => {
   );
 };
 
-export default Ads;
+export default AboutAds;

@@ -1,9 +1,11 @@
 import React from 'react';
 import btnStyles from './button.module.scss';
 import { ReactComponent as BtnArrow } from '../../../img/button-arrow.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Button = ({ children, className, showArrow, onClick, type }) => {
-  const clickHandler = onClick || ((e) => e.preventDefault());
+  const navigate = useNavigate();
+  const clickHandler = onClick || (() => navigate('randomtext=>not-found'));
 
   return (
     <button

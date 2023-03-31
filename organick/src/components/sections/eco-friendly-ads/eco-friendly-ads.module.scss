@@ -1,0 +1,18 @@
+@import '../../../styles/main/colors.scss';
+
+.banners {
+  padding-top: 19rem;
+  padding-bottom: 19rem;
+  background-color: $color-primary-green-tint;
+  display: flex;
+  justify-content: space-between;
+  &--1 {
+    background-image: url('../../../img/organic-banner--1.jpg');
+  }
+  &--2 {
+    background-image: url('../../../img/organic-banner--2.jpg');
+  }
+  &--3 {
+    background-image: url('../../../img/organic-banner--3.jpg');
+  }
+}

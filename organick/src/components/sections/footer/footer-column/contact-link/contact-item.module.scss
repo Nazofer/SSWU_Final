@@ -13,5 +13,8 @@
   &-link {
     font-weight: 400;
     color: $color-paragraph-gray;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

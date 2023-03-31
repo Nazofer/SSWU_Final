@@ -14,5 +14,10 @@
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-background-light-gray;
+    }
   }
 }

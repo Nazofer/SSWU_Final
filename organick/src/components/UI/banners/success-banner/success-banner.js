@@ -6,8 +6,8 @@ const SuccessBanner = () => {
   return (
     <Banner
       heading='Thank you for your order'
-      className={styles.banner}
-      headingClassName={styles.heading}
+      className={styles['success__banner']}
+      headingClassName={styles['success__banner-heading']}
     ></Banner>
   );
 };

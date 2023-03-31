@@ -8,11 +8,14 @@ import ProductForm from './products-modal/products-modal';
 import ProductBackdrop from './products-modal/product-backdrop';
 import CartLink from '../nav-menu/cart-link/cart-link';
 import useFetchProducts from '../../fetch-products/fetch-products';
+import { useSelector } from 'react-redux';
 
 const Products = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showAll, setShowAll] = useState(false);
+
+  const counter = useSelector(state => state.cart.cartCounter);
 
   const productsData = useFetchProducts();
 
@@ -72,7 +75,7 @@ const Products = () => {
           />
         </>
       )}
-      {selectedProduct && <CartLink className={styles['cart-link']} />}
+      {counter > 0 && <CartLink className={styles['cart-link']} />}
     </div>
   );
 };

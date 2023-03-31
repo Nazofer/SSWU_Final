@@ -1,8 +1,8 @@
 import React from 'react';
 import { Subheading, Heading } from '../../../UI/Typography/typography';
-import styles from './banner.module.scss';
+import styles from './about-banner.module.scss';
 
-const Banner = (props) => {
+const AboutBanner = (props) => {
   return (
     <div className={`${styles.banner} ${styles[`${props.className}`]}`}>
       <div className={styles['banner__text']}>
@@ -18,4 +18,4 @@ const Banner = (props) => {
   );
 };
 
-export default Banner;
+export default AboutBanner;

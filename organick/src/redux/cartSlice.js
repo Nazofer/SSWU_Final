@@ -2,22 +2,6 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const initialCartState = {products: [], cartCounter: 0};
 
-// const cartCounterSlice = createSlice({
-//   name: 'cartCounter',
-//   initialState: initialCartCounterValue,
-//   reducers: {
-//     increaseCartCounter(state, action) {
-//       state.value += action.payload;
-//     },
-//     decreaseCartCounter(state, action) {
-//       state.value -= action.payload;
-//     },
-//     clearCartCounter(state) {
-//       state.value = 0;
-//     },
-//   },
-// });
-
 const cartSlice = createSlice({
   name: 'cart',
   initialState: initialCartState,
