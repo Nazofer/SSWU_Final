@@ -1,6 +1,18 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const initialCartState = {products: [], cartCounter: 0};
+const initialProductsState = [];
+
+const productsSlice = createSlice({
+  name: 'products',
+  initialState: initialProductsState,
+  reducers: {
+    addProducts(state, action) {
+      // console.log('pidor',action.payload);
+      state.push(...action.payload);
+    }
+  }
+});
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -43,6 +55,7 @@ const cartSlice = createSlice({
 const store = configureStore({
   reducer: {
     cart: cartSlice.reducer,
+    products: productsSlice.reducer,
   },
 });
 
@@ -52,5 +65,7 @@ export const {
   setCartItemQuantity,
   clearCart,
 } = cartSlice.actions;
+
+export const {addProducts} = productsSlice.actions;
 
 export default store;

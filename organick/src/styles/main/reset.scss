@@ -35,3 +35,20 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+
+
+}
+
+/* BELOW 944px (Tablets) */
+
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+  
+}

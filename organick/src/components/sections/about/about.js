@@ -37,7 +37,7 @@ const About = () => {
               img={aboutMailbox}
             />
           </div>
-          <Button showArrow={true}>
+          <Button showArrow>
             Shop Now
           </Button>
         </div>

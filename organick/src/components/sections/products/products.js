@@ -7,7 +7,6 @@ import WidthContainer from '../../UI/WidthContainer/container';
 import ProductForm from './products-modal/products-modal';
 import ProductBackdrop from './products-modal/product-backdrop';
 import CartLink from '../nav-menu/cart-link/cart-link';
-import useFetchProducts from '../../fetch-products/fetch-products';
 import { useSelector } from 'react-redux';
 
 const Products = () => {
@@ -17,8 +16,8 @@ const Products = () => {
 
   const counter = useSelector(state => state.cart.cartCounter);
 
-  const productsData = useFetchProducts();
-
+  const productsData = useSelector(state => state.products);
+  // console.log("productsData", productsData);
   const toggleShowAll = (e) => {
     e.preventDefault();
     setShowAll(!showAll);
@@ -63,7 +62,7 @@ const Products = () => {
       <WidthContainer className={styles['categories__container']}>
         {ProductsList}
       </WidthContainer>
-      <Button showArrow={true} onClick={toggleShowAll}>
+      <Button showArrow onClick={toggleShowAll} className={styles['categories-button']}>
         {showAll ? 'Show Less' : 'Show More'}
       </Button>
       {isModalOpened && (

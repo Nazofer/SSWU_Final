@@ -74,7 +74,7 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
                 inputQuantity={inputQuantity}
                 inputQuantityHandler={inputQuantityHandler}
               />
-              <Button showArrow={true} onClick={addToCartHandler}>
+              <Button showArrow onClick={addToCartHandler}>
                 Add To Cart
               </Button>
             </div>

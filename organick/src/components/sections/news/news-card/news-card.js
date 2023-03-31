@@ -15,7 +15,7 @@ import Button from '../../../UI/Button/Button';
         </div>
         <Heading className={styles['card__content-heading']}>{heading}</Heading>
         <Paragraph className={styles['card__content-paragraph']}>{paragraph}</Paragraph>
-        <Button showArrow={true} className={styles['card__content-button']}>Read More</Button>
+        <Button showArrow className={styles['card__content-button']}>Read More</Button>
       </div>
     </div>
   );

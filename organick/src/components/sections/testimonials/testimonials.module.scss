@@ -11,6 +11,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    z-index: -1;
     // max-height: 120rem;
   }
   &-bg--left {
@@ -28,6 +29,8 @@
   }
   .feedback {
     max-width: 80rem;
+    background-color: $color-white;
+    border-radius: 30px;
     &__person {
       &-avatar {
         margin: 0 auto;
@@ -62,4 +65,10 @@
     justify-content: space-between;
     max-width: 110rem;
   }
+}
+
+@media (max-width: 75em) {
+  
+
+
 }

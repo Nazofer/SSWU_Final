@@ -1,7 +1,6 @@
 @import '../../../../styles/main/colors.scss';
 
 .search {
-  min-width: 37.6rem;
   position: relative;
   overflow: hidden;
   border-radius: 36px;
@@ -23,4 +22,37 @@
     top: 0.1rem;
     background-color: $color-primary-green;
   }
+}
+/* BELOW 1408px */
+
+@media (max-width: 88em) {
+  .search-input {
+    display: none;
+  }
+}
+
+/* BELOW 1200px (Landscape Tablets) */
+
+@media (max-width: 75em) {
+
+
+}
+
+/* BELOW 944px (Tablets) */
+
+@media (max-width: 59em) {
+
+  
+}
+
+/* BELOW 704px (Smaller tablets) */
+
+@media (max-width: 44em) {
+
+}
+
+/* BELOW 592px (Phones) */
+
+@media (max-width: 37em) {
+
 }

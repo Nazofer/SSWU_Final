@@ -1,36 +1,31 @@
 @import '../../../styles/main/colors.scss';
 
-.wrapper {
-  background: rgba(255, 255, 255, 0.9);
-  max-width: 170rem;
-  .nav-menu {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+.nav-menu {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  &__links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &__links {
-      display: flex;
-      gap: 4.5rem;
-      
-    }
-    &__links a {
-      font-family: 'Roboto', sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 2rem;
-  
-      color: $color-primary-blue;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    &__search {
-      display: flex;
-      align-items: center;
-      
-      
-      
-    }
+    gap: 4.5rem;
   }
+  &__links a {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $color-primary-blue;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__search {
+    display: flex;
+    align-items: center;
+  }
+}
+.nav-menu .wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 180rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

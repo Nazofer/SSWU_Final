@@ -1,9 +1,9 @@
 import React from 'react'; 
-import ctnStyles from './container.module.scss'
+import styles from './container.module.scss'
 
  const WidthContainer = ({children, className}) => {
   return (
-    <div className={`${ctnStyles.container} ${className || ''}`}>{children}</div>
+    <div className={`${styles.container} ${className || ''}`}>{children}</div>
   );
  } 
 

@@ -109,7 +109,7 @@ const Form = () => {
           inptPlaceholder={'Enter your phone:'}
         />
         <Button
-          showArrow={true}
+          showArrow
           type='submit'
           className={styles['form-button']}
           onClick={submitHandler}

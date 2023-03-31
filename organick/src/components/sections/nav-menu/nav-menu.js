@@ -1,6 +1,5 @@
 import React from 'react';
 import { ReactComponent as ArrDown } from '../../../img/nav-menu-arrow-down.svg';
-
 import styles from './nav-menu.module.scss';
 import LogoMain from '../../UI/LogoMain/logo-main';
 import WidthContainer from '../../UI/WidthContainer/container';
@@ -10,8 +9,8 @@ import SearchInput from './search-input/search-input';
 
 const NavMenu = () => {
   return (
-    <WidthContainer className={styles['wrapper']}>
-      <nav className={styles['nav-menu']}>
+    <nav className={styles['nav-menu']}>
+      <WidthContainer className={styles['wrapper']}>
         <LogoMain />
         <div className={styles['nav-menu__links']}>
           <NavLink to='/'>Home</NavLink>
@@ -27,8 +26,8 @@ const NavMenu = () => {
           <SearchInput />
           <CartLink />
         </div>
-      </nav>
-    </WidthContainer>
+      </WidthContainer>
+    </nav>
   );
 };
 

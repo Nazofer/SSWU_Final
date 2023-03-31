@@ -59,7 +59,7 @@ const Order = (props) => {
 
       {!isOrderBtnClicked && (
         <Button
-          showArrow={true}
+          showArrow
           className={styles['order-to']}
           onClick={toOrderHandler}
         >

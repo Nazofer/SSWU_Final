@@ -1,12 +1,13 @@
 import React from 'react';
-import useFetchProducts from '../../fetch-products/fetch-products';
+import { useSelector } from 'react-redux';
+// import useFetchProducts from '../../fetch-products/fetch-products';
 import { Heading, Subheading } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
 import ProductCard from '../products/product-card/product-card';
 import styles from './offers.module.scss';
 
 const Offers = () => {
-  const productsData = useFetchProducts().slice(0, 4);
+  const productsData = useSelector(state => state.products).slice(0, 4);
 
   const ProductsList = productsData.map((product) => (
     <ProductCard
