@@ -5,14 +5,12 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  // margin-bottom: 20rem;
   padding-bottom: 16.4rem;
   & > img {
     position: absolute;
     top: 0;
     bottom: 0;
     z-index: -1;
-    // max-height: 120rem;
   }
   &-bg--left {
     left: 0;
@@ -78,7 +76,6 @@
 
 
 }
-/* BELOW 704px (Smaller tablets) */
 
 @media (max-width: 44em) {
   .testimonials .benefits {

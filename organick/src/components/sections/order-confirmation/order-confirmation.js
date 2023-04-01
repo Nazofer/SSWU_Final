@@ -24,8 +24,6 @@ const Order = (props) => {
       name={product.name}
       price={product.price}
       discount={product.discount}
-      // onOpenModal={openModalHandler}
-      // onSelectItem={selectProductHandler}
       key={product.id}
       id={product.id}
       url={product.url}
@@ -44,7 +42,6 @@ const Order = (props) => {
 
   return (
     <section className={styles['order']}>
-      {/* <OrderElement name={props.name} price={props.price} discount={props.discount}/> */}
       <WidthContainer className={styles['order__list']}>
         {OrderedProductsList}
       </WidthContainer>

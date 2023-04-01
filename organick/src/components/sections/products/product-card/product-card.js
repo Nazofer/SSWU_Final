@@ -22,8 +22,6 @@ const ProductCard = ({
     onSelectItem(id);
   };
 
-  //console.log('url:', url);
-
   return (
     <div className={styles.product} onClick={selectProduct}>
       <Button className={styles['product-tag']}>{type}</Button>

@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-//import { getStorage, ref } from 'firebase/storage';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -15,5 +14,3 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
-// export const storage = getStorage(app);
-// const storageRef = ref(storage);

@@ -54,10 +54,14 @@
   }
 }
 
-/* BELOW 704px (Smaller tablets) */
-
 @media (max-width: 44em) {
   .card {
     padding: 2rem;
+  }
+}
+
+@media (max-width: 37em) {
+  .card {
+    min-width: 30rem;
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import btnStyles from './button.module.scss';
 import { ReactComponent as BtnArrow } from '../../../img/button-arrow.svg';
 import { useNavigate } from 'react-router-dom';
+import classnames from 'classnames';
 
 const Button = ({ children, className, showArrow, onClick, type }) => {
   const navigate = useNavigate();

@@ -18,7 +18,6 @@ const OrderElement = (props) => {
   const inputQuantityHandler = (e) => {
     //console.log(e.target.value);
     setInputQuantity(+e.target.value);
-     // setItemQuantity(+e.target.value);
     dispatch(setCartItemQuantity({ quantity: +e.target.value, id: props.id }));
   }
 

@@ -16,6 +16,8 @@
   &-wrapper {
     margin: 0 auto 0 2rem;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     font-weight: 600;
     font-size: 4rem;
     line-height: 4.7rem;
@@ -38,10 +40,14 @@
     text-decoration: line-through;
   }
   &-remove {
-    position: absolute;
-    bottom: 38%;
-    right: -8%;
+    margin-left: 2rem;
     width: 64px;
     height: 46px;
+  }
+}
+
+@media (max-width: 59em) {
+  .product-img {
+    display: none;
   }
 }

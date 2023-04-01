@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import useFetchProducts from '../../fetch-products/fetch-products';
 import { Heading, Subheading } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
 import ProductCard from '../products/product-card/product-card';
@@ -17,8 +16,6 @@ const Offers = () => {
       price={product.price}
       discount={product.discount}
       url={product.url}
-      // onOpenModal={openModalHandler}
-      // onSelectItem={selectProductHandler}
       id={product.id}
     />
   ));

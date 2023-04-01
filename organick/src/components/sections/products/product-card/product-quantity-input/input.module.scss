@@ -8,12 +8,11 @@
   line-height: 23px;
   color: $color-primary-blue;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   .product-input {
     display: inline-block;
-    padding: 3rem 6rem;
-    width: 17rem;
+    padding: 3rem;
     background: $color-white;
     border: 2px solid $color-primary-blue;
     border-radius: 16px;
@@ -25,5 +24,11 @@
       border-color: red;
       background-color: #fbdada;
     }
+  }
+}
+
+@media (max-width: 44em) {
+  .product-label {
+    font-size: 0;
   }
 }

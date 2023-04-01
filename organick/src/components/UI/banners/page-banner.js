@@ -7,6 +7,7 @@ import styles from './page-banner.module.scss';
   return (
     <div className={`${styles.banner} ${props.className || ''}`}>
       <Heading className={`${styles['banner-heading']} ${props.headingClassName}`}>{props.heading}</Heading>
+      {props.children}
     </div>
   );
  } 

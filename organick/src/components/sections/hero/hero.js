@@ -3,6 +3,7 @@ import styles from './hero.module.scss';
 import Button from '../../UI/Button/Button';
 import { Subheading, HeroHeading } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
+import { ReactComponent as DecoreGroup } from '../../../img/decors/group.svg';
 
 const Hero = () => {
   return (
@@ -17,6 +18,7 @@ const Hero = () => {
         <Button showArrow={true} className={styles['hero-btn']}>
           Explore Now
         </Button>
+        <DecoreGroup className={styles['hero__decores']}/>
       </WidthContainer>
     </div>
   );

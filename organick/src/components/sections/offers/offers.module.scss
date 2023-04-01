@@ -14,13 +14,11 @@
   }
   &__list {
     display: grid;
-    // grid-template-columns: repeat(4, 1fr);
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     justify-content: center;
     gap: 2rem;
   }
 }
-// /* BELOW 592px (Phones) */
 
 @media (max-width: 37em) {
   .offers {
