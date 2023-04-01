@@ -20,6 +20,11 @@
   &__search {
     display: flex;
     align-items: center;
+    &-burger {
+      width: 65px;
+      height: 65px;
+      display: none;
+    }
   }
 }
 .nav-menu .wrapper {
@@ -28,4 +33,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 75em) {
+  .nav-menu__links {
+    gap: 2.5rem;
+  }
+}
+@media (max-width: 44em) {
+  
+  .nav-menu {
+    &__links {
+      display: none;
+    }
+    &__search {
+      flex-direction: row-reverse;
+      &-burger {
+        display: block;
+      }
+      &-btn {
+        display: none !important;
+      }
+    }
+
+  }
+  
 }

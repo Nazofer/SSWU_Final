@@ -5,6 +5,8 @@ import styles from './order-form.module.scss';
 import Button from '../../../UI/Button/Button';
 import useInputValidation from '../../../form-validation/form-validation';
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../../../../redux/cartSlice';
 
 const nameValidator = (value) => /^[A-Z][a-z]*$/.test(value);
 const emailValidator = (value) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/.test(value);
@@ -13,6 +15,7 @@ const addressValidator = (value) => value.trim().length > 10;
 
 const Form = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     value: nameValue,
@@ -55,6 +58,7 @@ const Form = () => {
     if (!isNameValid || !isEmailValid || !isPhoneValid || !isAddressValid) {
       return;
     }
+    dispatch(clearCart());
     resetName();
     resetEmail();
     resetAddress()

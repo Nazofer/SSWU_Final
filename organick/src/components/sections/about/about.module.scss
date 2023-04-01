@@ -33,6 +33,8 @@
   }
 }
 
-// @media (max-width: 84em) {
-  
-// }
+@media (max-width: 59em) {
+  .about__image {
+    display: none;
+  }
+}

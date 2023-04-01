@@ -34,3 +34,20 @@
   flex-direction: column;
   align-items: flex-end;
 }
+
+@media (max-width: 75em) {
+  .eco-friendly {
+    background-size: cover;
+    justify-content: center;
+    &__content {
+      transform: translateY(0);
+    }
+  }
+}
+/* BELOW 704px (Smaller tablets) */
+
+@media (max-width: 44em) {
+  .eco-friendly__content {
+    padding: 3rem;
+  }
+}

@@ -11,7 +11,7 @@ const useFetchProducts = () => {
 
   const dispatch = useDispatch();
 
-  console.log(productsData);
+  // console.log(productsData);
   useEffect(() => {
     getDocs(collection(db, 'Products'))
       .then((querySnapshot) => {

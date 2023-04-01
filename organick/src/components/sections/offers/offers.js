@@ -7,7 +7,7 @@ import ProductCard from '../products/product-card/product-card';
 import styles from './offers.module.scss';
 
 const Offers = () => {
-  const productsData = useSelector(state => state.products).slice(0, 4);
+  const productsData = useSelector(state => state.products.productsList).slice(0, 4);
 
   const ProductsList = productsData.map((product) => (
     <ProductCard

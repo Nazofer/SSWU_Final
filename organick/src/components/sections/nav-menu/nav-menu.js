@@ -6,6 +6,7 @@ import WidthContainer from '../../UI/WidthContainer/container';
 import { NavLink } from 'react-router-dom';
 import CartLink from './cart-link/cart-link';
 import SearchInput from './search-input/search-input';
+import { ReactComponent as BurgerMenu } from '../../../img/menu-hamburger.svg';
 
 const NavMenu = () => {
   return (
@@ -24,8 +25,10 @@ const NavMenu = () => {
         </div>
         <div className={styles['nav-menu__search']}>
           <SearchInput />
-          <CartLink />
+          <BurgerMenu className={styles['nav-menu__search-burger']}/>
+          <CartLink className={styles['nav-menu__search-btn']}/>
         </div>
+          
       </WidthContainer>
     </nav>
   );

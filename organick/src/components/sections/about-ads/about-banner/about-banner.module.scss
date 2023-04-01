@@ -5,8 +5,10 @@
   flex-direction: column;
   justify-content: center;
   background-size: cover;
-  width: 68.2rem;
   height: 36rem;
+  flex: 1 1 0%;
+  min-width: 45rem;
+  border-radius: 30px;
   &__text {
     padding-left: 5.4rem;
     &-heading {

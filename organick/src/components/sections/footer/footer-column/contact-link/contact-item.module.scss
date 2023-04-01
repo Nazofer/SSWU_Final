@@ -18,3 +18,9 @@
     }
   }
 }
+@media (max-width: 59em) {
+  .contact {
+    // flex-direction: row;
+    align-items: center;
+  }
+}

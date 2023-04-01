@@ -1,11 +1,12 @@
 @import '../../../styles/main/colors.scss';
 
 .news {
-  
   &__header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 4.5rem;
+    gap: 5rem;
     &-subheading {
       margin-bottom: 0.8;
     }
@@ -23,7 +24,9 @@
   &__banners {
     margin-bottom: 25rem;
     display: flex;
-    gap: 4rem;
+    gap: 5rem;
+    flex-wrap: wrap;
+    // margin-bottom: 4.5rem;
     &--1 {
       background-image: url('../../../img/news-banner--1.png');
     }
