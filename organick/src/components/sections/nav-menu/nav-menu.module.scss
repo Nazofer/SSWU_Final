@@ -24,6 +24,7 @@
       width: 65px;
       height: 65px;
       display: none;
+      filter: invert(27%) sepia(10%) saturate(1896%) hue-rotate(152deg) brightness(94%) contrast(95%);
       cursor: pointer;
     }
   }

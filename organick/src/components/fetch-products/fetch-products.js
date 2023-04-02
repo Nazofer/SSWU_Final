@@ -6,32 +6,20 @@ import { addProducts } from '../../redux/cartSlice';
 
 const useFetchProducts = () => {
   const [productsData, setProductsData] = useState([]);
-
-  const [isLoading, setIsLoading] = useState(true);
-
   const dispatch = useDispatch();
 
-  // console.log(productsData);
   useEffect(() => {
-    getDocs(collection(db, 'Products'))
-      .then((querySnapshot) => {
-        setIsLoading(true);
-        setProductsData([]);
-        querySnapshot.forEach((el) =>
-          setProductsData((prev) =>
-            [...prev, el.data()].sort((a, b) => b.discount - a.discount)
-          )
-        );
-      })
-      .then(() => setIsLoading(false));
+    (async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'Products'));
+        const products = querySnapshot.docs.map((doc) => doc.data());
+        setProductsData(products.sort((a, b) => b.discount - a.discount));
+        dispatch(addProducts(products));
+      } catch (error) {
+        console.error(error);
+      }
+    })();
   }, []);
-
-  useEffect(() => {
-    if (!isLoading) {
-      // console.log(productsData);
-      dispatch(addProducts(productsData));
-    }
-  }, [isLoading]);
 
   return productsData;
 };
