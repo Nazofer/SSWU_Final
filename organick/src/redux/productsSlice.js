@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-const initialCartState = {products: [], cartCounter: 0};
-const initialProductsState = {productsList: []};
+const initialCartState = { products: [], cartCounter: 0 };
+const initialProductsState = { productsList: [] };
 
 const productsSlice = createSlice({
   name: 'products',
@@ -10,8 +10,8 @@ const productsSlice = createSlice({
     addProducts(state, action) {
       state.productsList = [];
       state.productsList.push(...action.payload);
-    }
-  }
+    },
+  },
 });
 
 const cartSlice = createSlice({
@@ -30,11 +30,15 @@ const cartSlice = createSlice({
       }
     },
     removeItemFromCart(state, action) {
-      state.products = state.products.filter((item) => item.id !== action.payload.id);
+      state.products = state.products.filter(
+        (item) => item.id !== action.payload.id
+      );
       state.cartCounter -= action.payload.quantity;
     },
     setCartItemQuantity(state, action) {
-      const itemIndex = state.products.findIndex((item) => item.id === action.payload.id);
+      const itemIndex = state.products.findIndex(
+        (item) => item.id === action.payload.id
+      );
       state.products[itemIndex].quantity = action.payload.quantity;
       state.cartCounter = state.products.reduce(
         (acc, cur) => (acc += cur.quantity),
@@ -62,6 +66,6 @@ export const {
   clearCart,
 } = cartSlice.actions;
 
-export const {addProducts} = productsSlice.actions;
+export const { addProducts } = productsSlice.actions;
 
 export default store;

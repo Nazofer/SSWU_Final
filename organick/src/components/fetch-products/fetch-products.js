@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../db/firebase';
 import { useDispatch } from 'react-redux';
-import { addProducts } from '../../redux/cartSlice';
+import { addProducts } from '../../redux/productsSlice';
 
 const useFetchProducts = () => {
   const [productsData, setProductsData] = useState([]);

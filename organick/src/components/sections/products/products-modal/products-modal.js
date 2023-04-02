@@ -8,25 +8,27 @@ import WidthContainer from '../../../UI/WidthContainer/container';
 import ProductQuantityInput from '../product-card/product-quantity-input/input';
 
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../../../redux/cartSlice';
+import { addItemToCart } from '../../../../redux/productsSlice';
 
 const ProductForm = ({ onOpenModal, selectedProduct }) => {
   const dispatch = useDispatch();
   const [inputQuantity, setInputQuantity] = useState(1);
+  const [productInfo, setProductInfo] = useState({
+    activeButton: 'desc-btn',
+    text: selectedProduct.description,
+  });
+
+  function handleButtonClick(button, text) {
+    setProductInfo({ activeButton: button, text: text });
+  }
 
   const inputQuantityHandler = (e) => {
-    // e.preventDefault();
     setInputQuantity(+e.target.value);
   };
 
   useEffect(() => {
-    // Disable scrolling when the modal is open
     document.body.classList.add('no-scroll');
-
-    return () => {
-      // Re-enable scrolling when the modal is closed
-      document.body.classList.remove('no-scroll');
-    };
+    return () => document.body.classList.remove('no-scroll');
   }, []);
 
   const addToCartHandler = (e) => {
@@ -51,7 +53,7 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
       <WidthContainer className={styles['product__container']}>
         <div className={styles['product__details']}>
           <div
-            style={{ backgroundImage: `url(${selectedProduct.url})` }}
+            style={{ backgroundImage: `url(${selectedProduct.url})` }}//refactor with img
             className={styles['product__details-img']}
           ></div>
           <div className={styles['product__details-info']}>
@@ -65,16 +67,18 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
               discount={selectedProduct.discount}
             />
             <Paragraph className={styles['product-paragraph']}>
-              Simply dummy text of the printing and typesetting industry. Lorem
-              had ceased to been the industry's standard dummy text ever since
-              the 1500s, when an unknown printer took a galley.
+              {selectedProduct.overview}
             </Paragraph>
             <div className={styles['product__controls']}>
               <ProductQuantityInput
                 inputQuantity={inputQuantity}
                 inputQuantityHandler={inputQuantityHandler}
               />
-              <Button showArrow onClick={addToCartHandler}>
+              <Button
+                className={styles['product__controls-btn']}
+                showArrow
+                onClick={addToCartHandler}
+              >
                 Add To Cart
               </Button>
             </div>
@@ -82,20 +86,37 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
         </div>
         <div className={styles['product__description']}>
           <div className={styles['product__buttons']}>
-            <Button>Product Description</Button>
-            <Button>Additional Info</Button>
+            <Button
+              className={
+                productInfo.activeButton === 'desc-btn'
+                  ? styles['product__buttons--active']
+                  : ''
+              }
+              onClick={() =>
+                handleButtonClick('desc-btn', selectedProduct.description)
+              }
+            >
+              Product Description
+            </Button>
+            <Button
+              className={
+                productInfo.activeButton === 'add-btn'
+                  ? styles['product__buttons--active']
+                  : ''
+              }
+              onClick={() =>
+                handleButtonClick('add-btn', selectedProduct.additionalInfo)
+              }
+            >
+              Additional Info
+            </Button>
           </div>
-          <Paragraph>
-            Welcome to the world of natural and organic. Here you can discover
-            the bounty of nature. We have grown on the principles of health,
-            ecology, and care. We aim to give our customers a healthy
-            chemical-free meal for perfect nutrition. It offers about 8-10%
-            carbs. Simple sugars — such as glucose and fructose — make up 70%
-            and 80% of the carbs in raw.
+          <Paragraph className={styles['product__description-text']}>
+            {productInfo.text}
           </Paragraph>
         </div>
         <Button onClick={onOpenModal} className={styles['product-close']}>
-          Х
+          X
         </Button>
       </WidthContainer>
     </div>

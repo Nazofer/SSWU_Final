@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import {
   removeItemFromCart,
   setCartItemQuantity,
-} from '../../../../../redux/cartSlice';
+} from '../../../../../redux/productsSlice';
 
 const OrderElement = (props) => {
   const [inputQuantity, setInputQuantity] = useState(props.quantity || '');

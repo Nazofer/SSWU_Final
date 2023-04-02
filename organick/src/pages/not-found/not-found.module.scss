@@ -5,10 +5,12 @@
   z-index: 100;
   height: calc(100vh - 208px);
   background-image: url('../../img/not-found-banner.png');
+  background-position: center;
   background-size: cover;
   display: flex;
   align-items: center;
   margin-bottom: 14.5rem;
+  overflow: hidden;
   &__content {
     text-align: center;
     &-subheading {
@@ -28,6 +30,14 @@
       margin: 0 auto;
     }
   }
+  &-decores {
+    position: absolute;
+    inset: 0;
+    left: -35rem;
+    top: 3rem;
+    z-index: -1;
+    width: 100%;
+  }
 }
 
 .wrapper {
@@ -35,4 +45,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+@media (max-width: 44em) {
+  .wrapper {
+    align-items: center;
+  }
+  .not-found__content-subheading {
+    font-size: 20rem;
+    color: $color-white;
+  }
 }

@@ -16,15 +16,15 @@ const MainBody = () => {
 
   return (
     <>
-      <Hero></Hero>
-      <AboutAds></AboutAds>
-      <About></About>
-      <Products></Products>
-      <Testimonials></Testimonials>
-      <Offers></Offers>
-      <EcoFriendly></EcoFriendly>
-      <EcoFriendlyAds></EcoFriendlyAds>
-      <News></News>
+      <Hero/>
+      <AboutAds/>
+      <About/>
+      <Products/>
+      <Testimonials/>
+      <Offers/>
+      <EcoFriendly/>
+      <EcoFriendlyAds/>
+      <News/>
     </>
   );
 };

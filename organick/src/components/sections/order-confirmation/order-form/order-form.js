@@ -6,7 +6,7 @@ import Button from '../../../UI/Button/Button';
 import useInputValidation from '../../../form-validation/form-validation';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { clearCart } from '../../../../redux/cartSlice';
+import { clearCart } from '../../../../redux/productsSlice';
 
 const nameValidator = (value) => /^[A-Z][a-z]*$/.test(value);
 const emailValidator = (value) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/.test(value);

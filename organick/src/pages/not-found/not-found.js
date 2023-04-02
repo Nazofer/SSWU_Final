@@ -7,6 +7,7 @@ import {
 import WidthContainer from '../../components/UI/WidthContainer/container';
 import styles from './not-found.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { ReactComponent as NotFoundDecores } from '../../img/decors/not-found-group.svg';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const NotFound = () => {
           </Button>
         </div>
       </WidthContainer>
+      <NotFoundDecores className={styles['not-found-decores']}/>
     </div>
   );
 };
