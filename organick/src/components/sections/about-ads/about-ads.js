@@ -7,15 +7,14 @@ const AboutAds = () => {
   return (
     <WidthContainer className={styles.banners}>
       <Banner
-        className="banner--1"
-        heading="Get Garden Fresh Fruits"
-        subheading="Natural!!"
-        textColor="white"
+        className='banner--1'
+        heading='Get Garden Fresh Fruits'
+        subheading='Natural!!'
       />
       <Banner
-        className="banner--2"
-        heading="Get 10% off on Vegetables"
-        subheading="Offer!!"
+        className='banner--2'
+        heading='Get 10% off on Vegetables'
+        subheading='Offer!!'
       />
     </WidthContainer>
   );

@@ -1,5 +1,4 @@
 .cart__banner {
-  // margin-top: 10rem;
   background-image: url('../../../../img/cart-banner.png');
   background-size: cover;
   background-position: center;
@@ -8,7 +7,6 @@
   &-decores {
     position: absolute;
     inset: 0;
-    // z-index: -1;
     width: 100%;
   }
 }

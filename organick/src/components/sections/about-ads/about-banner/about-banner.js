@@ -1,18 +1,14 @@
 import React from 'react';
 import { Subheading, Heading } from '../../../UI/Typography/typography';
 import styles from './about-banner.module.scss';
+import classNames from 'classnames';
 
-const AboutBanner = (props) => {
+const AboutBanner = ({ subheading, heading, className }) => {
   return (
-    <div className={`${styles.banner} ${styles[`${props.className}`]}`}>
+    <div className={classNames(styles.banner, styles[className])}>
       <div className={styles['banner__text']}>
-        <Subheading textColor={props.textColor}>{props.subheading}</Subheading>
-        <Heading
-          textColor={props.textColor}
-          className={`${styles['banner__text-heading']}`}
-        >
-          {props.heading}
-        </Heading>
+        <Subheading>{subheading}</Subheading>
+        <Heading className={styles['banner__text-heading']}>{heading}</Heading>
       </div>
     </div>
   );

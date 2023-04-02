@@ -1,11 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import styles from './order-confirmation.module.scss';
 import Button from '../../UI/Button/Button';
 import { Heading } from '../../UI/Typography/typography';
 import WidthContainer from '../../UI/WidthContainer/container';
 import Form from './order-form/order-form';
 import OrderElement from './order-form/order-element/order-element';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 const Order = (props) => {
   const [isOrderBtnClicked, setIsOrderBtnClicked] = useState(false);
 
@@ -15,8 +16,6 @@ const Order = (props) => {
   };
 
   const cart = useSelector((state) => state.cart.products);
-
-  //console.log('cart', cart);
 
   const OrderedProductsList = cart.map((product) => (
     <OrderElement

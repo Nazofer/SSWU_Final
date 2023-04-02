@@ -19,6 +19,9 @@
   }
   &--1 {
     background-image: url('../../../../img/ads-banner1.png');
+    & h2,h3 {
+      color: white;
+    }
   }
   &--2 {
     background-image: url('../../../../img/ads-banner2.png');

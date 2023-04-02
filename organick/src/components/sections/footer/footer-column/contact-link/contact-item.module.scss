@@ -9,6 +9,9 @@
   align-items: flex-end;
   &-label {
     font-weight: 700;
+    &--hidden {
+      display: none;
+    }
   }
   &-link {
     font-weight: 400;

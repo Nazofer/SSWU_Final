@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './about-card.module.scss';
 import { Heading, Paragraph } from '../../../UI/Typography/typography';
+import classNames from 'classnames';
 
 const AboutCard = ({ img, heading, paragraph, disableImg }) => {
   return (
     <div className={styles.card}>
       <div
-        className={`${styles['card__img']} ${
-          disableImg ? styles['card__img--disabled'] : ''
-        }`}
+        className={classNames(styles['card__img'], {
+          [styles['card__img--disabled']]: disableImg,
+        })}
       >
         <img src={img} alt='' />
       </div>

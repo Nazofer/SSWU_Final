@@ -6,7 +6,9 @@ import ProductCard from '../products/product-card/product-card';
 import styles from './offers.module.scss';
 
 const Offers = () => {
-  const productsData = useSelector(state => state.products.productsList).slice(0, 4);
+  const productsData = useSelector(
+    (state) => state.products.productsList
+  ).slice(0, 4);
 
   const ProductsList = productsData.map((product) => (
     <ProductCard
@@ -24,10 +26,10 @@ const Offers = () => {
     <div className={styles['offers']}>
       <WidthContainer className={styles['offers__container']}>
         <Subheading className={styles['offers-subheading']}>Offer</Subheading>
-        <Heading className={styles['offers-heading']}>We Offer Organic For You</Heading>
-        <div className={styles['offers__list']}>
-          {ProductsList}
-        </div>
+        <Heading className={styles['offers-heading']}>
+          We Offer Organic For You
+        </Heading>
+        <div className={styles['offers__list']}>{ProductsList}</div>
       </WidthContainer>
     </div>
   );

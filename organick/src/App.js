@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <NavMenu></NavMenu>
+        <NavMenu/>
         <div className='Content'>
           <Routes>
             <Route exact path='/' element={<MainBody />} />
@@ -26,7 +26,7 @@ function App() {
             <Route path="*" element={<NotFound/>}/>  
           </Routes>
         </div>
-        <Footer></Footer>
+        <Footer/>
       </div>
     </Router>
   );

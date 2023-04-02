@@ -25,10 +25,9 @@ const NavMenu = () => {
         </div>
         <div className={styles['nav-menu__search']}>
           <SearchInput />
-          <BurgerMenu className={styles['nav-menu__search-burger']}/>
-          <CartLink className={styles['nav-menu__search-btn']}/>
+          <BurgerMenu className={styles['nav-menu__search-burger']} />
+          <CartLink className={styles['nav-menu__search-btn']} />
         </div>
-          
       </WidthContainer>
     </nav>
   );

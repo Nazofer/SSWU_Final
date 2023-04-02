@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './order-element.module.scss';
-// import WidthContainer from '../../../../UI/WidthContainer/container';
 import { Heading } from '../../../../UI/Typography/typography';
 import ProductQuantityInput from '../../../products/product-card/product-quantity-input/input';
 import Button from '../../../../UI/Button/Button';
@@ -12,26 +11,26 @@ import {
 } from '../../../../../redux/cartSlice';
 
 const OrderElement = (props) => {
-
   const [inputQuantity, setInputQuantity] = useState(props.quantity || '');
-  
+
   const inputQuantityHandler = (e) => {
-    //console.log(e.target.value);
     setInputQuantity(+e.target.value);
     dispatch(setCartItemQuantity({ quantity: +e.target.value, id: props.id }));
-  }
+  };
 
   const dispatch = useDispatch();
 
-  const removeFromCartHandler = e => {
+  const removeFromCartHandler = (e) => {
     e.preventDefault();
     dispatch(removeItemFromCart({ id: props.id, quantity: props.quantity }));
   };
 
-
   return (
     <div className={styles['product']}>
-      <div style={{backgroundImage: `url(${props.url})`}} className={styles['product-img']}></div>
+      <div
+        style={{ backgroundImage: `url(${props.url})` }}//refactor bg with img
+        className={styles['product-img']}
+      ></div>
       <div className={styles['product-wrapper']}>
         <Heading className={styles['product-name']}>{props.name}</Heading>
         <ProductPrice
@@ -40,8 +39,16 @@ const OrderElement = (props) => {
           discount={props.discount}
         />
       </div>
-      <ProductQuantityInput inputQuantity={inputQuantity} inputQuantityHandler={inputQuantityHandler}/>
-      <Button className={styles['product-remove']} onClick={removeFromCartHandler}>X</Button>
+      <ProductQuantityInput
+        inputQuantity={inputQuantity}
+        inputQuantityHandler={inputQuantityHandler}
+      />
+      <Button
+        className={styles['product-remove']}
+        onClick={removeFromCartHandler}
+      >
+        X
+      </Button>
     </div>
   );
 };

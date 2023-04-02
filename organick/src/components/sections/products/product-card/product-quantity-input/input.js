@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './input.module.scss';
+import classNames from 'classnames';
 
 const ProductQuantityInput = React.forwardRef((props, ref) => {
   return (
     <label className={styles['product-label']}>
-      Quantity :
+      Quantity:
       <input
         ref={ref}
         type='number'
@@ -13,9 +14,9 @@ const ProductQuantityInput = React.forwardRef((props, ref) => {
         step={1}
         value={props.inputQuantity}
         onChange={props.inputQuantityHandler}
-        className={`${styles['product-input']} ${
-          props.inputQuantity < 1 ? styles['product-input--invalid'] : ''
-        }`}
+        className={classNames(styles['product-input'], {
+          [styles['product-input--invalid']]: props.inputQuantity < 1,
+        })}
       />
     </label>
   );

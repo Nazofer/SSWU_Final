@@ -2,7 +2,6 @@ import React from 'react';
 import Button from '../../../UI/Button/Button';
 import styles from './product-card.module.scss';
 import { Heading } from '../../../UI/Typography/typography';
-// import productImg from '../../../img/products-broccoli.png';
 import { ReactComponent as Rating } from '../../../../img/5-stars.svg';
 import ProductPrice from './product-price/product-price';
 
@@ -30,7 +29,9 @@ const ProductCard = ({
         className={styles['product-img']}
       ></div>
       <div className={styles['product__description']}>
-        <Heading className={styles['product__description-heading']}>{name}</Heading>
+        <Heading className={styles['product__description-heading']}>
+          {name}
+        </Heading>
         <hr className={styles['product__description-separator']} />
         <p className={styles['product__description__parameters']}>
           <ProductPrice price={price} discount={discount} />

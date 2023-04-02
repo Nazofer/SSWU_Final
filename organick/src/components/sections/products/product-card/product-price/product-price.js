@@ -1,12 +1,14 @@
 import React from 'react';
-
 import styles from './product-price.module.scss';
+import classNames from 'classnames';
 
-const ProductPrice = props => {
+const ProductPrice = ({ price, discount, className }) => {
   return (
-    <span className={`${styles.price} ${props.className || ''}`}>
-      <span className={`${styles.discount} ${props.className || ''}`}>${(+props.price).toFixed(2)}</span>$
-      {(+props.price - +props.discount).toFixed(2)}
+    <span className={classNames(styles.price, className)}>
+      <span className={classNames(styles.discount, className)}>
+        ${(+price).toFixed(2)}
+      </span>
+      ${(+price - +discount).toFixed(2)}
     </span>
   );
 };

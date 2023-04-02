@@ -3,10 +3,11 @@ import styles from './news-card.module.scss';
 import { ReactComponent as PersonIcon } from '../../../../img/person.svg';
 import { Heading, Paragraph } from '../../../UI/Typography/typography';
 import Button from '../../../UI/Button/Button';
+import classNames from 'classnames';
 
  const NewsCard = ({ className, heading, paragraph}) => {
   return (
-    <div className={`${styles['card']} ${className || ''}`}>
+    <div className={classNames(styles.card, className)}>
       <div className={styles['card-date']}>25<br/> Nov</div>
       <div className={styles['card__content']}>
         <div className={styles['card__content__person']}>

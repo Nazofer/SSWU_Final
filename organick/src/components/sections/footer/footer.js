@@ -13,23 +13,25 @@ const Footer = () => {
       <WidthContainer className={styles['footer-container']}>
         <FooterColumn className={styles['footer-column--left']}>
           <Heading className={styles['footer-contact']}>Contact Us</Heading>
-          <ContactUs label='Email' link='needhelp@Organia.com'/>
-          <ContactUs label='Phone' link='666 888 888'/>
-          <ContactUs label='Address' link='88 road, borklyn street, USA'/>
+          <ContactUs label='Email' link='needhelp@Organia.com' />
+          <ContactUs label='Phone' link='666 888 888' />
+          <ContactUs label='Address' link='88 road, borklyn street, USA' />
         </FooterColumn>
         <FooterColumn className={styles['footer-logo-column']}>
-          <LogoMain/>
-          <Paragraph>Simply dummy text of the printing and typesetting industry.
-Lorem Ipsum simply dummy text of the printing </Paragraph>
-          <SocialLinks/>
+          <LogoMain />
+          <Paragraph>
+            Simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum simply dummy text of the printing
+          </Paragraph>
+          <SocialLinks />
         </FooterColumn>
         <FooterColumn className={styles['footer-column--right']}>
           <Heading className={styles['footer-contact']}>Utility Pages</Heading>
-          <ContactUs link='Style Guide'/>
-          <ContactUs link='404 Not Found'/>
-          <ContactUs link='Password Protected'/>
-          <ContactUs link='Licences'/>
-          <ContactUs link='Changelog'/>
+          <ContactUs link='Style Guide' />
+          <ContactUs link='404 Not Found' />
+          <ContactUs link='Password Protected' />
+          <ContactUs link='Licences' />
+          <ContactUs link='Changelog' />
         </FooterColumn>
       </WidthContainer>
     </footer>

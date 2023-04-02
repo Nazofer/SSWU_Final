@@ -6,7 +6,7 @@ import { ReactComponent as SearchIcon } from '../../../../img/nav-menu-search.sv
 const SearchInput = () => {
   return (
     <div className={styles.search}>
-      <input className={styles['search-input']} type='text' name='' id='' />
+      <input className={styles['search-input']} type='text'/>
       <IconLink className={styles['btn']}>
         <SearchIcon />
       </IconLink>

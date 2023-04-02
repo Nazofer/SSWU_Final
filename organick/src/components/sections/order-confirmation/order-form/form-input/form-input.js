@@ -1,5 +1,6 @@
 import React from 'react';
 import inptStyles from './form-input.module.scss';
+import classNames from 'classnames';
 
 export const Input = ({
   label,
@@ -16,7 +17,9 @@ export const Input = ({
       <input
         type={inptType}
         placeholder={inptPlaceholder}
-        className={`${inptStyles.input} ${invalid ? inptStyles.invalid : ''}`}
+        className={classNames(inptStyles.input, {
+          [inptStyles.invalid]: invalid,
+        })}
         onChange={onChange}
         onBlur={onBlur}
         value={value}
@@ -33,7 +36,7 @@ export const Textarea = ({ label, inptType, inptPlaceholder }) => {
       <textarea
         type={inptType}
         placeholder={inptPlaceholder}
-        className={`${inptStyles.input} ${inptStyles.textarea}`}
+        className={classNames(inptStyles.input, inptStyles.textarea)}
       />
     </label>
   );

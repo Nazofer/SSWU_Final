@@ -1,46 +1,27 @@
 import React from 'react';
-import typography from './typography.module.scss';
+import styles from './typography.module.scss';
+import classNames from 'classnames';
 
-export const Heading = ({ children, className, textColor }) => {
+export const Heading = ({ children, className }) => {
   return (
-    <h2
-      style={{ color: textColor || '' }}
-      className={`${typography.heading} ${className || ''}`}
-    >
-      {children}
-    </h2>
+    <h2 className={classNames(styles.heading, className)}>{children}</h2>
   );
 };
 
-export const Subheading = ({ children, className, textColor }) => {
+export const Subheading = ({ children, className }) => {
   return (
-    <h3
-      style={{ color: textColor || '' }}
-      className={`${typography.subheading} ${className || ''}`}
-    >
-      {children}
-    </h3>
+    <h3 className={classNames(styles.subheading, className)}>{children}</h3>
   );
 };
 
-export const Paragraph = ({ children, className, textColor }) => {
+export const Paragraph = ({ children, className }) => {
   return (
-    <p
-      style={{ color: textColor || '' }}
-      className={`${typography.paragraph} ${className || ''}`}
-    >
-      {children}
-    </p>
+    <p className={classNames(styles.paragraph, className)}>{children}</p>
   );
 };
 
-export const HeroHeading = ({ children, className, textColor }) => {
+export const HeroHeading = ({ children, className }) => {
   return (
-    <h1
-      style={{ color: textColor || '' }}
-      className={`${typography.heading} ${className || ''}`}
-    >
-      {children}
-    </h1>
+    <h1 className={classNames(styles.heading, className)}>{children}</h1>
   );
 };

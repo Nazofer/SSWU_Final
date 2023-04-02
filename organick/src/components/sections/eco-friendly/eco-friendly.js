@@ -16,18 +16,19 @@ const EcoFriendly = () => {
             Econis is a Friendly Organic Store
           </Heading>
           <div className={styles['eco-friendly__content__points']}>
+            {/* refactor with map */}
             <AboutCard
-            disableImg={true}
+              disableImg
               heading='Start with Our Company First'
               paragraph='Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis'
             ></AboutCard>
             <AboutCard
-            disableImg={true}
+              disableImg
               heading='Learn How to Grow Yourself'
               paragraph='Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis'
             ></AboutCard>
             <AboutCard
-            disableImg={true}
+              disableImg
               heading='Farming Strategies of Today'
               paragraph='Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis'
             ></AboutCard>

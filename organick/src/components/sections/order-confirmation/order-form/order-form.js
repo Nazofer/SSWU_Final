@@ -4,7 +4,7 @@ import WidthContainer from '../../../UI/WidthContainer/container';
 import styles from './order-form.module.scss';
 import Button from '../../../UI/Button/Button';
 import useInputValidation from '../../../form-validation/form-validation';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearCart } from '../../../../redux/cartSlice';
 
@@ -61,9 +61,9 @@ const Form = () => {
     dispatch(clearCart());
     resetName();
     resetEmail();
-    resetAddress()
+    resetAddress();
     resetPhone();
-    navigate("/success");
+    navigate('/success');
   };
 
   return (
