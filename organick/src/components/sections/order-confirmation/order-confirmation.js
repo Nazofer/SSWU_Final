@@ -62,7 +62,7 @@ const Order = (props) => {
           To order
         </Button>
       )}
-      {isOrderBtnClicked && <Form />}
+      {isOrderBtnClicked && <Form bill={bill}/>}
     </section>
   );
 };

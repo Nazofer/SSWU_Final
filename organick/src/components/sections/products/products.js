@@ -17,7 +17,7 @@ const Products = () => {
   const counter = useSelector(state => state.cart.cartCounter);
 
   const productsData = useSelector(state => state.products.productsList);
-  console.log("productsData", productsData);
+  // console.log("productsData", productsData);
   const toggleShowAll = (e) => {
     e.preventDefault();
     setShowAll(!showAll);

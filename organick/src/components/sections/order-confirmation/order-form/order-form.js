@@ -5,17 +5,22 @@ import styles from './order-form.module.scss';
 import Button from '../../../UI/Button/Button';
 import useInputValidation from '../../../form-validation/form-validation';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../../../redux/productsSlice';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../../../../db/firebase';
 
 const nameValidator = (value) => /^[A-Z][a-z]*$/.test(value);
 const emailValidator = (value) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/.test(value);
 const phoneValidator = (value) => /^\d{10}$/.test(value);
 const addressValidator = (value) => value.trim().length > 10;
 
-const Form = () => {
+const Form = ({ bill }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const productsData = useSelector((state) => state.cart.products).map(
+    ({ url, ...info }) => info
+  );
 
   const {
     value: nameValue,
@@ -58,6 +63,23 @@ const Form = () => {
     if (!isNameValid || !isEmailValid || !isPhoneValid || !isAddressValid) {
       return;
     }
+    const date = new Date();
+    (async () => {
+      // Add a new document with a generated id.
+      const docRef = await addDoc(collection(db, 'Orders'), {
+        name: nameValue,
+        email: emailValue,
+        phone: phoneValue,
+        address: addressValue,
+        order: {
+          productsData,
+          totalCost: bill.price - bill.discount,
+          totalDiscount: bill.discount,
+          orderDate: date.toLocaleDateString(),
+        },
+      });
+      console.log('Order posted on firebase with ID: ', docRef.id);
+    })();
     dispatch(clearCart());
     resetName();
     resetEmail();

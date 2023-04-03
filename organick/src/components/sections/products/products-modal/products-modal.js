@@ -9,13 +9,26 @@ import ProductQuantityInput from '../product-card/product-quantity-input/input';
 
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../../../redux/productsSlice';
+import classNames from 'classnames';
 
-const ProductForm = ({ onOpenModal, selectedProduct }) => {
+const ProductForm = ({
+  onOpenModal,
+  selectedProduct: {
+    name,
+    price,
+    discount,
+    id,
+    url,
+    description,
+    overview,
+    additionalInfo,
+  },
+}) => {
   const dispatch = useDispatch();
   const [inputQuantity, setInputQuantity] = useState(1);
   const [productInfo, setProductInfo] = useState({
     activeButton: 'desc-btn',
-    text: selectedProduct.description,
+    text: description,
   });
 
   function handleButtonClick(button, text) {
@@ -35,17 +48,15 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
     e.preventDefault();
     if (inputQuantity < 1) return;
     const addedItem = {
-      name: selectedProduct.name,
-      price: selectedProduct.price,
-      discount: selectedProduct.discount,
+      name: name,
+      price: price,
+      discount: discount,
       quantity: inputQuantity,
-      id: selectedProduct.id,
-      url: selectedProduct.url,
+      id: id,
+      url: url,
     };
 
     dispatch(addItemToCart(addedItem));
-    // console.log('counter:', cartCounter);
-    // console.log('cart:', cart);
   };
 
   return (
@@ -53,21 +64,16 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
       <WidthContainer className={styles['product__container']}>
         <div className={styles['product__details']}>
           <div
-            style={{ backgroundImage: `url(${selectedProduct.url})` }}//refactor with img
+            style={{ backgroundImage: `url(${url})` }} //refactor with img
             className={styles['product__details-img']}
           ></div>
           <div className={styles['product__details-info']}>
-            <Heading className={styles['product-name']}>
-              {selectedProduct.name}
-            </Heading>
+            <Heading className={styles['product-name']}>{name}</Heading>
             <Rating />
             <br />
-            <ProductPrice
-              price={selectedProduct.price}
-              discount={selectedProduct.discount}
-            />
+            <ProductPrice price={price} discount={discount} />
             <Paragraph className={styles['product-paragraph']}>
-              {selectedProduct.overview}
+              {overview}
             </Paragraph>
             <div className={styles['product__controls']}>
               <ProductQuantityInput
@@ -87,26 +93,20 @@ const ProductForm = ({ onOpenModal, selectedProduct }) => {
         <div className={styles['product__description']}>
           <div className={styles['product__buttons']}>
             <Button
-              className={
-                productInfo.activeButton === 'desc-btn'
-                  ? styles['product__buttons--active']
-                  : ''
-              }
-              onClick={() =>
-                handleButtonClick('desc-btn', selectedProduct.description)
-              }
+              className={classNames({
+                [styles['product__buttons--active']]:
+                  productInfo.activeButton === 'desc-btn',
+              })}
+              onClick={() => handleButtonClick('desc-btn', description)}
             >
               Product Description
             </Button>
             <Button
-              className={
-                productInfo.activeButton === 'add-btn'
-                  ? styles['product__buttons--active']
-                  : ''
-              }
-              onClick={() =>
-                handleButtonClick('add-btn', selectedProduct.additionalInfo)
-              }
+              className={classNames({
+                [styles['product__buttons--active']]:
+                  productInfo.activeButton === 'add-btn',
+              })}
+              onClick={() => handleButtonClick('add-btn', additionalInfo)}
             >
               Additional Info
             </Button>

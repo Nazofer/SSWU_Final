@@ -6,7 +6,7 @@ const validateReducer = (state, action) => {
       return {
         value: action.value,
         isValid: action.isValid,
-        isTouched: true,
+        isTouched: false,
       };
     case 'BLUR':
       return {
