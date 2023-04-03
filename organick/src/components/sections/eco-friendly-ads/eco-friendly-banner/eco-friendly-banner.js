@@ -6,7 +6,7 @@ import classNames from 'classnames';
  const EcoFriendlyBanner = ({ button, className }) => {
   return (
     <div className={classNames(styles['ads__card'], className)}>
-      <Button className={styles['ads__card-button']}>{button}</Button>
+      <Button white className={styles['ads__card-button']}>{button}</Button>
     </div>
   );
  } 

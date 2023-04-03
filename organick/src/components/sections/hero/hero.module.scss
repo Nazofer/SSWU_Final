@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  z-index: 100;
+  // z-index: 100;
   height: calc(100vh - 208px);
   background-image: url('../../../img/hero-background.png');
   background-position: center;
@@ -12,20 +12,17 @@
   align-items: center;
   margin-bottom: 14.5rem;
   overflow: hidden;
+  &-heading {
+    font-size: 7rem;
+    max-width: 53rem;
+    margin-bottom: 2.3rem;
+  }
   &__content {
     width: 100%;
     &-subheading {
       margin-bottom: 0.8rem;
     }
-    .hero-heading {
-      font-size: 7rem;
-      max-width: 53rem;
-      margin-bottom: 2.3rem;
-    }
-    .hero-btn {
-      background-color: $color-primary-yellow;
-      color: $color-primary-blue;
-    }
+    
   }
   &__decores {
     position: absolute;

@@ -32,7 +32,7 @@ const ProductForm = ({
   });
 
   function handleButtonClick(button, text) {
-    setProductInfo({ activeButton: button, text: text });
+    setProductInfo({ activeButton: button, text: text});
   }
 
   const inputQuantityHandler = (e) => {
@@ -44,8 +44,7 @@ const ProductForm = ({
     return () => document.body.classList.remove('no-scroll');
   }, []);
 
-  const addToCartHandler = (e) => {
-    e.preventDefault();
+  const addToCartHandler = () => {
     if (inputQuantity < 1) return;
     const addedItem = {
       name: name,
@@ -55,7 +54,6 @@ const ProductForm = ({
       id: id,
       url: url,
     };
-
     dispatch(addItemToCart(addedItem));
   };
 

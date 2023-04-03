@@ -9,23 +9,57 @@
   }
   &__links a {
     font-family: 'Roboto', sans-serif;
-    font-style: normal;
     font-weight: 700;
     font-size: 2rem;
     color: $color-primary-blue;
     display: flex;
-    align-items: center;
     gap: 0.5rem;
   }
-  &__search {
+
+  &__controls {
     display: flex;
     align-items: center;
     &-burger {
-      width: 65px;
-      height: 65px;
+      width: 40px;
+      height: 30px;
       display: none;
-      filter: invert(27%) sepia(10%) saturate(1896%) hue-rotate(152deg) brightness(94%) contrast(95%);
       cursor: pointer;
+      position: relative;
+      z-index: 101;
+      background-color: #ffff;
+      & span,
+      &::before,
+      &::after {
+        content: '';
+        right: 0;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: $color-primary-blue;
+        transition: all 0.4s ease-in-out;
+      }
+      &::before {
+        top: 0px;
+      }
+      &::after {
+        bottom: 0px;
+      }
+      & span {
+        top: calc(50% - 1.5px);
+      }
+    }
+    &-burger--active {
+      &::before {
+        top: calc(50% - 1.5px);
+        transform: rotate(45deg);
+      }
+      &::after {
+        bottom: calc(50% - 1.5px);
+        transform: rotate(-45deg);
+      }
+      & span {
+        width: 0;
+      }
     }
   }
 }
@@ -43,12 +77,11 @@
   }
 }
 @media (max-width: 44em) {
-  
   .nav-menu {
     &__links {
       display: none;
     }
-    &__search {
+    &__controls {
       flex-direction: row-reverse;
       &-burger {
         display: block;
@@ -57,7 +90,30 @@
         display: none !important;
       }
     }
-
+    &__burger,
+    &__burger--active {
+      .nav-menu__links {
+        display: flex;
+        flex-direction: column;
+      }
+      display: flex ;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      // backdrop-filter: 10px;
+      z-index: 100;
+      top: 0;
+      transition: left 0.3s ease 0s;
+      
+    }
+    &__burger--active {
+      left: 0;
+    }
+    &__burger {
+      left: -100%;
+    }
   }
-  
 }

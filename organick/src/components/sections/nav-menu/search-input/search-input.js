@@ -7,7 +7,7 @@ const SearchInput = () => {
   return (
     <div className={styles.search}>
       <input className={styles['search-input']} type='text'/>
-      <IconLink className={styles['btn']}>
+      <IconLink className={styles['search-btn']}>
         <SearchIcon />
       </IconLink>
     </div>

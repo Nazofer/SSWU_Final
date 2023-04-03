@@ -16,7 +16,7 @@ import classNames from 'classnames';
         </div>
         <Heading className={styles['card__content-heading']}>{heading}</Heading>
         <Paragraph className={styles['card__content-paragraph']}>{paragraph}</Paragraph>
-        <Button showArrow className={styles['card__content-button']}>Read More</Button>
+        <Button yellow showArrow className={styles['card__content-button']}>Read More</Button>
       </div>
     </div>
   );

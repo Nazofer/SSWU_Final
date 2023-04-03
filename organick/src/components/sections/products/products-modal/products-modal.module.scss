@@ -92,6 +92,7 @@
       border: 1px solid #000000;
       color: $color-primary-blue;
       border-radius: 16px;
+      pointer-events: none;
     }
   }
   &__description {

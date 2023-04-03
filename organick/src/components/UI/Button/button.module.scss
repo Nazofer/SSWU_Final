@@ -13,7 +13,25 @@
   font-weight: 700;
   background-color: $color-primary-blue;
   width: fit-content;
-  border: 1px solid transparent;
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    background-color: #2F5463;
+  }
+  &-yllw {
+    background-color: $color-primary-yellow;
+    color: $color-primary-blue;
+    &:hover {
+      background-color: #EDDB7A;
+    }
+  }
+  &-wht {
+    background-color: $color-white;
+    color: $color-primary-blue;
+    &:hover {
+      background-color: $color-white;
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
   &-arrow {
     display: block;
     &--hidden {

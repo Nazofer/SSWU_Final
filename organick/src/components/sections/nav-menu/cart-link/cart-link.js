@@ -10,7 +10,7 @@ const CartLink = ({ className }) => {
   const cartCounter = useSelector((state) => state.cart.cartCounter);
   return (
     <div className={classNames(styles.cart, className)}>
-      <IconLink linkTo='/cart' className={styles['btn']}>
+      <IconLink linkTo='/cart' className={styles['cart-btn']}>
         <Cart />
         <p className={cartCounter > 0 ? styles['cart-popup']: ''}>
           {cartCounter}

@@ -15,7 +15,7 @@ const Hero = () => {
         <HeroHeading className={styles['hero-heading']}>
           Choose the best healthier way of life
         </HeroHeading>
-        <Button showArrow={true} className={styles['hero-btn']}>
+        <Button yellow showArrow>
           Explore Now
         </Button>
         <DecoreGroup className={styles['hero__decores']}/>

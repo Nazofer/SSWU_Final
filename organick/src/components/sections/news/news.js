@@ -18,7 +18,7 @@ const News = () => {
             Discover weekly content about organic food, & more
           </Heading>
         </div>
-        <Button showArrow className={styles['news__header-button']}>
+        <Button white showArrow className={styles['news__header-button']}>
           More News
         </Button>
       </WidthContainer>

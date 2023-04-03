@@ -58,28 +58,25 @@ const Form = ({ bill }) => {
     reset: resetAddress,
   } = useInputValidation(addressValidator);
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     if (!isNameValid || !isEmailValid || !isPhoneValid || !isAddressValid) {
       return;
     }
     const date = new Date();
-    (async () => {
-      // Add a new document with a generated id.
-      const docRef = await addDoc(collection(db, 'Orders'), {
-        name: nameValue,
-        email: emailValue,
-        phone: phoneValue,
-        address: addressValue,
-        order: {
-          productsData,
-          totalCost: bill.price - bill.discount,
-          totalDiscount: bill.discount,
-          orderDate: date.toLocaleDateString(),
-        },
-      });
-      console.log('Order posted on firebase with ID: ', docRef.id);
-    })();
+    const docRef = await addDoc(collection(db, 'Orders'), {
+      name: nameValue,
+      email: emailValue,
+      phone: phoneValue,
+      address: addressValue,
+      order: {
+        productsData,
+        totalCost: bill.price - bill.discount,
+        totalDiscount: bill.discount,
+        orderDate: date.toLocaleDateString(),
+      },
+    });
+    console.log('Order posted on firebase with ID: ', docRef.id);
     dispatch(clearCart());
     resetName();
     resetEmail();
