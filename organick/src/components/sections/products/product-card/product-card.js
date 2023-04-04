@@ -4,6 +4,7 @@ import styles from './product-card.module.scss';
 import { Heading } from '../../../UI/Typography/typography';
 import { ReactComponent as Rating } from '../../../../img/5-stars.svg';
 import ProductPrice from './product-price/product-price';
+import ProductImg from './product-image/product-image';
 
 const ProductCard = ({
   type,
@@ -24,10 +25,7 @@ const ProductCard = ({
   return (
     <div className={styles.product} onClick={selectProduct}>
       <Button className={styles['product-tag']}>{type}</Button>
-      <div
-        style={{ backgroundImage: `url(${url})` }}
-        className={styles['product-img']}
-      ></div>
+      <ProductImg url={url} alt={name} className={styles['product-img']}/>
       <div className={styles['product__description']}>
         <Heading className={styles['product__description-heading']}>
           {name}

@@ -9,6 +9,7 @@ import {
   removeItemFromCart,
   setCartItemQuantity,
 } from '../../../../../redux/productsSlice';
+import ProductImg from '../../../products/product-card/product-image/product-image';
 
 const OrderElement = (props) => {
   const [inputQuantity, setInputQuantity] = useState(props.quantity || '');
@@ -27,10 +28,7 @@ const OrderElement = (props) => {
 
   return (
     <div className={styles['product']}>
-      <div
-        style={{ backgroundImage: `url(${props.url})` }}//refactor bg with img
-        className={styles['product-img']}
-      ></div>
+      <ProductImg alt={props.name} url={props.url} className={styles['product-img']}/>
       <div className={styles['product-wrapper']}>
         <Heading className={styles['product-name']}>{props.name}</Heading>
         <ProductPrice

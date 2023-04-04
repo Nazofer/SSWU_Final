@@ -10,6 +10,7 @@ import ProductQuantityInput from '../product-card/product-quantity-input/input';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../../../redux/productsSlice';
 import classNames from 'classnames';
+import ProductImg from '../product-card/product-image/product-image';
 
 const ProductForm = ({
   onOpenModal,
@@ -55,16 +56,14 @@ const ProductForm = ({
       url: url,
     };
     dispatch(addItemToCart(addedItem));
+    onOpenModal();
   };
 
   return (
     <div className={styles.product}>
       <WidthContainer className={styles['product__container']}>
         <div className={styles['product__details']}>
-          <div
-            style={{ backgroundImage: `url(${url})` }} //refactor with img
-            className={styles['product__details-img']}
-          ></div>
+          <ProductImg url={url} className={styles['product__details-img']}/>
           <div className={styles['product__details-info']}>
             <Heading className={styles['product-name']}>{name}</Heading>
             <Rating />

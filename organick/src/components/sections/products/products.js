@@ -32,7 +32,7 @@ const Products = () => {
     const selectedItem = productsData.find(
       (element) => element.id === product_id
     );
-    console.log(selectedItem);
+    // console.log(selectedItem);
     setSelectedProduct(selectedItem);
   };
 

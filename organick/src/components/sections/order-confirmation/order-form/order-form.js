@@ -58,11 +58,14 @@ const Form = ({ bill }) => {
     reset: resetAddress,
   } = useInputValidation(addressValidator);
 
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    if (!isNameValid || !isEmailValid || !isPhoneValid || !isAddressValid) {
-      return;
-    }
+  const resetForm = () => {
+    resetName();
+    resetEmail();
+    resetAddress();
+    resetPhone();
+  };
+  
+  const createOrder = async () => {
     const date = new Date();
     const docRef = await addDoc(collection(db, 'Orders'), {
       name: nameValue,
@@ -77,13 +80,19 @@ const Form = ({ bill }) => {
       },
     });
     console.log('Order posted on firebase with ID: ', docRef.id);
+    resetForm();
     dispatch(clearCart());
-    resetName();
-    resetEmail();
-    resetAddress();
-    resetPhone();
+  };
+  
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    if (!isNameValid || !isEmailValid || !isPhoneValid || !isAddressValid) {
+      return;
+    }
+    await createOrder();
     navigate('/success');
   };
+  
 
   return (
     <WidthContainer>
