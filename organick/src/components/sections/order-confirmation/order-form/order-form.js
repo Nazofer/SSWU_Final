@@ -136,9 +136,9 @@ const Form = ({ bill }) => {
           />
         </div>
         <Textarea
-          label={'Message*'}
+          label={'Message(optional)'}
           inptType={'text'}
-          inptPlaceholder={'Enter your phone:'}
+          inptPlaceholder={'Enter your message:'}
         />
         <Button
           showArrow
