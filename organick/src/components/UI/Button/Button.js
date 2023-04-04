@@ -14,7 +14,7 @@ const Button = ({
   white,
 }) => {
   const navigate = useNavigate();
-  const clickHandler = onClick || (() => navigate('notfound')); //navigate with any text leads to not-found page
+  const clickHandler = onClick || (() => navigate('notfound'));
 
   return (
     <button
@@ -22,8 +22,7 @@ const Button = ({
       type={type || 'button'}
       className={classNames(
         styles.button,
-        { [styles['button-yllw']]: yellow,
-        [styles['button-wht']]: white},
+        { [styles['button-yllw']]: yellow, [styles['button-wht']]: white },
         className
       )}
     >

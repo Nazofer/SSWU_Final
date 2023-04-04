@@ -6,7 +6,7 @@ import WidthContainer from '../../UI/WidthContainer/container';
 import { NavLink } from 'react-router-dom';
 import CartLink from './cart-link/cart-link';
 import SearchInput from './search-input/search-input';
-import classNames from 'classnames';
+import Burger from './burger-button/burger';
 
 const NavMenu = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
@@ -14,10 +14,6 @@ const NavMenu = () => {
   const isActiveBurgerHandler = () => {
     setIsActiveBurger(!isActiveBurger);
   };
-
-  isActiveBurger
-    ? document.body.classList.add('no-scroll')
-    : document.body.classList.remove('no-scroll');
 
   return (
     <nav className={styles['nav-menu']}>
@@ -43,14 +39,7 @@ const NavMenu = () => {
         </div>
         <div className={styles['nav-menu__controls']}>
           <SearchInput />
-          <button
-            className={classNames(styles['nav-menu__controls-burger'], {
-              [styles['nav-menu__controls-burger--active']]: isActiveBurger,
-            })}
-            onClick={isActiveBurgerHandler}
-          >
-            <span></span>
-          </button>
+          <Burger isActive={isActiveBurger} isActiveHandler={isActiveBurgerHandler}/>
           <CartLink className={styles['nav-menu__controls-btn']} />
         </div>
       </WidthContainer>

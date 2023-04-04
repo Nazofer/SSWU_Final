@@ -2,8 +2,8 @@
 
 .hero {
   position: relative;
-  // z-index: 100;
-  height: calc(100vh - 208px);
+  z-index: 10;
+  height: 85vh;
   background-image: url('../../../img/hero-background.png');
   background-position: center;
   background-size: cover;
@@ -35,5 +35,9 @@
 @media (max-width: 44em) {
   .hero {
     background-image: none;
+    background-color: $color-background-light-gray;
+    &-heading {
+      font-size: 5rem;
+    }
   }
 }

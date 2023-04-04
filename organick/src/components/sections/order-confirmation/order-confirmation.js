@@ -7,11 +7,10 @@ import Form from './order-form/order-form';
 import OrderElement from './order-form/order-element/order-element';
 import { useSelector } from 'react-redux';
 
-const Order = (props) => {
+const Order = () => {
   const [isOrderBtnClicked, setIsOrderBtnClicked] = useState(false);
 
-  const toOrderHandler = (e) => {
-    e.preventDefault();
+  const toOrderHandler = () => {
     setIsOrderBtnClicked(true);
   };
 
@@ -19,7 +18,6 @@ const Order = (props) => {
 
   const OrderedProductsList = cart.map((product) => (
     <OrderElement
-      //type={product.type}
       name={product.name}
       price={product.price}
       discount={product.discount}
