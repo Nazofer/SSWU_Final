@@ -19,7 +19,7 @@ const useFetchProducts = () => {
         console.error(error);
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   return productsData;
 };
