@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './product-backdrop.module.scss';
 
-const ProductBackdrop = (props) => {
-  return <div className={styles.backdrop} onClick={props.onOpenModal}></div>;
+const ProductBackdrop = ({ onOpenModal }) => {
+  return <div className={styles.backdrop} onClick={onOpenModal}></div>;
 };
 
 export default ProductBackdrop;

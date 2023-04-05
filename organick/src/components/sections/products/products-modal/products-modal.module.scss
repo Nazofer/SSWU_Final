@@ -8,6 +8,9 @@
   width: 100%;
   padding: 11.5rem 0rem 14rem;
   background-color: #fffafa;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
   &__container {
     position: relative;
   }
@@ -69,7 +72,6 @@
   &__controls {
     display: flex;
     gap: 2rem;
-    // align-items: center;
     &-btn {
       padding: 0 3rem;
     }
@@ -101,6 +103,37 @@
     right: 3.5%;
   }
 }
+
+@keyframes modal-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes modal-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-50%);
+  }
+}
+
+.modal-enter {
+  animation-name: modal-enter;
+}
+
+.modal-exit {
+  animation-name: modal-exit;
+}
+
 @media (max-width: 44em) {
   .product__details-img {
     display: none;

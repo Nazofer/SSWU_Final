@@ -14,9 +14,9 @@ const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
-  const counter = useSelector(state => state.cart.cartCounter);
+  const counter = useSelector((state) => state.cart.cartCounter);
 
-  const productsData = useSelector(state => state.products.productsList);
+  const productsData = useSelector((state) => state.products.productsList);
   // console.log("productsData", productsData);
   const toggleShowAll = (e) => {
     e.preventDefault();
@@ -63,16 +63,21 @@ const Products = () => {
       <WidthContainer className={styles['categories__container']}>
         {ProductsList}
       </WidthContainer>
-      <Button showArrow onClick={toggleShowAll} className={styles['categories-button']}>
+      <Button
+        showArrow
+        onClick={toggleShowAll}
+        className={styles['categories-button']}
+      >
         {showAll ? 'Show Less' : 'Show More'}
       </Button>
+      <ProductForm
+        onOpenModal={openModalHandler}
+        isShown={isModalOpened}
+        selectedProduct={selectedProduct}
+      />
       {isModalOpened && (
         <>
           <ProductBackdrop onOpenModal={openModalHandler} />
-          <ProductForm
-            onOpenModal={openModalHandler}
-            selectedProduct={selectedProduct}
-          />
         </>
       )}
       {counter > 0 && <CartLink className={styles['cart-link']} />}
