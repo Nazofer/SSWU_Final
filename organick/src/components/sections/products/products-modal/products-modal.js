@@ -123,7 +123,7 @@ const ProductForm = ({ onOpenModal, isShown, selectedProduct }) => {
               </Button>
             </div>
             <Paragraph className={styles['product__description-text']}>
-              {productInfo.text}
+              {productInfo.text || selectedProduct?.description}
             </Paragraph>
           </div>
           <Button onClick={onOpenModal} className={styles['product-close']}>
