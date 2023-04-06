@@ -66,6 +66,7 @@ const Form = ({ bill }) => {
   };
   
   const createOrder = async () => {
+    if (productsData.length === 0) return;
     const date = new Date();
     const docRef = await addDoc(collection(db, 'Orders'), {
       name: nameValue,

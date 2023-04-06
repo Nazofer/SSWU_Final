@@ -1,6 +1,6 @@
 @import '../../../../../styles/main/colors.scss';
 
-.product-label {
+.quantity {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -10,7 +10,7 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  .product-input {
+  &-input {
     display: inline-block;
     padding: 3rem;
     background: $color-white;

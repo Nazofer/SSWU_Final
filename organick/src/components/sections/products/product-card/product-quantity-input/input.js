@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const ProductQuantityInput = ({inputQuantity, inputQuantityHandler}) => {
   return (
-    <label className={styles['product-label']}>
+    <label className={styles['quantity']}>
       Quantity:
       <input
         type='number'
@@ -13,8 +13,8 @@ const ProductQuantityInput = ({inputQuantity, inputQuantityHandler}) => {
         step={1}
         value={inputQuantity || ''}
         onChange={inputQuantityHandler}
-        className={classNames(styles['product-input'], {
-          [styles['product-input--invalid']]: inputQuantity < 1,
+        className={classNames(styles['quantity-input'], {
+          [styles['quantity-input--invalid']]: inputQuantity < 1,
         })}
       />
     </label>
